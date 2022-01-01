@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Default">
+      <UniqueIdentifier>{f4c4146c-a89f-428a-8bd0-cca021dd1537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.MainApp">
+      <UniqueIdentifier>{af1b88cc-51e6-4212-9bd8-a251a7249e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject">
+      <UniqueIdentifier>{87e46ac7-3bfd-4a75-811e-018e06322fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\00.Player">
+      <UniqueIdentifier>{add5aaf5-d5df-4c6a-8a4d-96e33a6294cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\Manager">
+      <UniqueIdentifier>{857e856b-477e-4922-bc89-84a0b5a0f689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene">
+      <UniqueIdentifier>{72f1f2ee-ba5e-4dd5-b8d2-60204f788cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\Stage">
+      <UniqueIdentifier>{c3cee2f2-50e0-4be3-bff7-0bf5c22d6336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\Manager">
+      <UniqueIdentifier>{88d8c28c-dd79-4a5f-b325-49a3b62c8a9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\01.Terrain">
+      <UniqueIdentifier>{242273b9-2dcb-4faf-a970-92e1118ce60f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture">
+      <UniqueIdentifier>{8efc0ad0-d9fe-4f68-9a6c-702559d30b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Multi_Texture">
+      <UniqueIdentifier>{3cc7d3d1-caef-4d40-b558-fc4792ed5e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Single_Texture">
+      <UniqueIdentifier>{335ad5b0-f580-4887-b785-5c4ae4e4ee6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Texture\Manager">
+      <UniqueIdentifier>{21e5a76b-75dd-44b0-b7f3-fe33b1b4f21c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Graphic_device">
+      <UniqueIdentifier>{440f3e9f-bf2a-4438-adad-90cab8e331a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Scroll_Manager">
+      <UniqueIdentifier>{994ff52c-41f2-4a99-9b6e-bee98f5d943a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Time_Manager">
+      <UniqueIdentifier>{4d597918-4cd0-45de-b220-c97b09064120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07.Frame_Manager">
+      <UniqueIdentifier>{486a97e0-c53e-48b2-b4af-d6ca991c60c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\Loading">
+      <UniqueIdentifier>{3284aa04-8b98-4197-8539-3ea842a6b6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\00.Player\A%2aManager">
+      <UniqueIdentifier>{3ea19cd3-a68e-4063-bfb6-522ce4e1d0ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08.Collison_Manager">
+      <UniqueIdentifier>{e11794c6-234d-4a15-892a-c2fe41f83b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\02.Enemy_Unit">
+      <UniqueIdentifier>{54671f7d-3452-4720-8564-8cf35e96a898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\03.Friendly_Unit">
+      <UniqueIdentifier>{d7fb4f08-49ec-4650-9c96-1586747cc239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\03.Friendly_Unit\Summon">
+      <UniqueIdentifier>{33251380-07ed-4b25-acf9-46075264f382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\02.Enemy_Unit\Monster_A%2aManager">
+      <UniqueIdentifier>{4053d3ca-8f7b-4fd4-85e4-58a3284d6386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\00.Player\01.Bullet">
+      <UniqueIdentifier>{ea5de65e-33f2-43ed-9f80-3322230ba4dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI">
+      <UniqueIdentifier>{d0a47c25-a09b-4b50-9e62-b0f1fa1a9f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\02.Enemy_Unit\01.West_Bullet">
+      <UniqueIdentifier>{0242c3f5-f494-4afd-b3a3-fe160c3d9c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\00.Player\02.Skill">
+      <UniqueIdentifier>{c552c366-4b7c-45d6-aa04-db78f0b626d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="09.Key_Manager">
+      <UniqueIdentifier>{3614f626-6fa0-4fa4-b080-bafe2db707ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI\00.GageBar">
+      <UniqueIdentifier>{6a4ca65a-866b-4897-9a0b-6ee88e0fb560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI\01.Pannel">
+      <UniqueIdentifier>{2ec8e357-1b25-4655-9a09-a19c107fd670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\03.Friendly_Unit\NPC">
+      <UniqueIdentifier>{35467054-acda-41e0-84e3-ad1050553049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI\02.Quest">
+      <UniqueIdentifier>{b364d33c-0f54-40af-b8e0-58e9172001ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\02.Enemy_Unit\02,DAEMA_Skill">
+      <UniqueIdentifier>{4d5d17e1-c4b5-43f0-93ee-c8bc851d7310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI\NewFilter1">
+      <UniqueIdentifier>{1db08ad5-7e82-4a5b-8fab-a2a5879978bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\04.UI\00.GageBar\탑 HPbar">
+      <UniqueIdentifier>{d74a89aa-21e6-41b7-bc74-87eaa5309081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.Sound">
+      <UniqueIdentifier>{c6aa6ff6-9406-442e-aca1-27ed351576e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\03.Friendly_Unit\Summon\Skill">
+      <UniqueIdentifier>{7474b7bc-78ee-47fe-8ac5-37c875645e10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="MainApp.h">
+      <Filter>00.MainApp</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01.GameObject\00.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject_Manager.h">
+      <Filter>01.GameObject\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>03.Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Multi_Texture.h">
+      <Filter>03.Texture\Multi_Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Single_Texture.h">
+      <Filter>03.Texture\Single_Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture_Manager.h">
+      <Filter>03.Texture\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Manager.h">
+      <Filter>02.Scene\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic_Device.h">
+      <Filter>04.Graphic_device</Filter>
+    </ClInclude>
+    <ClInclude Include="Scroll_Manager.h">
+      <Filter>05.Scroll_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Time_Manager.h">
+      <Filter>06.Time_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame_Manager.h">
+      <Filter>07.Frame_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CLoading.h">
+      <Filter>02.Scene\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="CAStar_Manager.h">
+      <Filter>01.GameObject\00.Player\A%2aManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CMapObject.h">
+      <Filter>01.GameObject\01.Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="CCamera.h">
+      <Filter>05.Scroll_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Japan_infantry.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Archer.h">
+      <Filter>01.GameObject\03.Friendly_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="West_Rifleman.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="M_AStar_Manager.h">
+      <Filter>01.GameObject\02.Enemy_Unit\Monster_A%2aManager</Filter>
+    </ClInclude>
+    <ClInclude Include="West_Boss.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="West_infantry.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>01.GameObject\01.Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Player.h">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CMouse.h">
+      <Filter>01.GameObject\04.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="West_Bullet.h">
+      <Filter>01.GameObject\02.Enemy_Unit\01.West_Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Headers\Extern.h">
+      <Filter>01.GameObject\00.Player\A%2aManager</Filter>
+    </ClInclude>
+    <ClInclude Include="HanYang_Scene.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="KwangHwa_Scene.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Start_Scene.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CSkill1_Player.h">
+      <Filter>01.GameObject\00.Player\02.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Key_Manager.h">
+      <Filter>09.Key_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerBullet_Player.h">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Japan_Boss.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>08.Collison_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CTDmgNumber.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DmgNumber.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalEffect.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Collison_Manager.h">
+      <Filter>01.GameObject\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Summon_GwonYool.h">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClInclude>
+    <ClInclude Include="Summon_Janggum.h">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClInclude>
+    <ClInclude Include="Summon_Kimsimin.h">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClInclude>
+    <ClInclude Include="CExPBar_Player.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CGageBar.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CHPBar_Player.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CMPBar_Player.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="SummonName.h">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_Leewonik.h">
+      <Filter>01.GameObject\03.Friendly_Unit\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="RoyalGuard.h">
+      <Filter>01.GameObject\03.Friendly_Unit\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="JangGumIName.h">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClInclude>
+    <ClInclude Include="RoyalGuardName.h">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClInclude>
+    <ClInclude Include="CQuest.h">
+      <Filter>01.GameObject\04.UI\02.Quest</Filter>
+    </ClInclude>
+    <ClInclude Include="FireArrow_Player.h">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterArrow_Player.h">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="FireArrowSkill.h">
+      <Filter>01.GameObject\00.Player\02.Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEffect.h">
+      <Filter>01.GameObject\02.Enemy_Unit\01.West_Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CHPbar_Object.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="DAEMADO_Scene.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="KwangHwa_Scene2.h">
+      <Filter>02.Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="DAEMA_Boss.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="DAEMA_Dash.h">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="DAEMA_Skill.h">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="CdmgNumber2.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DAEMA_Shield.h">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="CFireBoom_Skill.h">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="TopHP.h">
+      <Filter>01.GameObject\04.UI\00.GageBar\탑 HPbar</Filter>
+    </ClInclude>
+    <ClInclude Include="TopHPbar.h">
+      <Filter>01.GameObject\04.UI\00.GageBar\탑 HPbar</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundMgr.h">
+      <Filter>10.Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="CBossHPbar.h">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Janggum_Skill.h">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterArrowSkill.h" />
+    <ClInclude Include="DAEMA_Samurai.h">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client.cpp">
+      <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="MainApp.cpp">
+      <Filter>00.MainApp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01.GameObject\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject_Manager.cpp">
+      <Filter>01.GameObject\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>03.Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Multi_Texture.cpp">
+      <Filter>03.Texture\Multi_Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Single_Texture.cpp">
+      <Filter>03.Texture\Single_Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture_Manager.cpp">
+      <Filter>03.Texture\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Manager.cpp">
+      <Filter>02.Scene\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>01.GameObject\01.Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic_Device.cpp">
+      <Filter>04.Graphic_device</Filter>
+    </ClCompile>
+    <ClCompile Include="Scroll_Manager.cpp">
+      <Filter>05.Scroll_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Time_Manager.cpp">
+      <Filter>06.Time_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame_Manager.cpp">
+      <Filter>07.Frame_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CLoading.cpp">
+      <Filter>02.Scene\Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="CAStar_Manager.cpp">
+      <Filter>01.GameObject\00.Player\A%2aManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CMapObject.cpp">
+      <Filter>01.GameObject\01.Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>05.Scroll_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Japan_infantry.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Archer.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="West_Rifleman.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="M_AStar_Manager.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\Monster_A%2aManager</Filter>
+    </ClCompile>
+    <ClCompile Include="West_Boss.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="West_infantry.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Player.cpp">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CMouse.cpp">
+      <Filter>01.GameObject\04.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="West_Bullet.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\01.West_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="HanYang_Scene.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="KwangHwa_Scene.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Start_Scene.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CSkill1_Player.cpp">
+      <Filter>01.GameObject\00.Player\02.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Key_Manager.cpp">
+      <Filter>09.Key_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerBullet_Player.cpp">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Japan_Boss.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>08.Collison_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CTDmgNumber.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DmgNumber.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CriticalEffect.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Collison_Manager.cpp">
+      <Filter>01.GameObject\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Summon_GwonYool.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClCompile>
+    <ClCompile Include="Summon_Janggum.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClCompile>
+    <ClCompile Include="Summon_Kimsimin.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon</Filter>
+    </ClCompile>
+    <ClCompile Include="CExPBar_Player.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CGageBar.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPBar_Player.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CMPBar_Player.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="SummonName.cpp">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Leewonik.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="RoyalGuard.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="JangGumIName.cpp">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClCompile>
+    <ClCompile Include="RoyalGuardName.cpp">
+      <Filter>01.GameObject\04.UI\01.Pannel</Filter>
+    </ClCompile>
+    <ClCompile Include="CQuest.cpp">
+      <Filter>01.GameObject\04.UI\02.Quest</Filter>
+    </ClCompile>
+    <ClCompile Include="FireArrow_Player.cpp">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterArrow_Player.cpp">
+      <Filter>01.GameObject\00.Player\01.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="FireArrowSkill.cpp">
+      <Filter>01.GameObject\00.Player\02.Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEffect.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\01.West_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPbar_Object.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="DAEMADO_Scene.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="KwangHwa_Scene2.cpp">
+      <Filter>02.Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="DAEMA_Boss.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="DAEMA_Dash.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="DAEMA_Skill.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="CdmgNumber2.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DAEMA_Shield.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="CFireBoom_Skill.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit\02,DAEMA_Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="TopHP.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar\탑 HPbar</Filter>
+    </ClCompile>
+    <ClCompile Include="TopHPbar.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar\탑 HPbar</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundMgr.cpp">
+      <Filter>10.Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="CBossHPbar.cpp">
+      <Filter>01.GameObject\04.UI\00.GageBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Janggum_Skill.cpp">
+      <Filter>01.GameObject\03.Friendly_Unit\Summon\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterArrowSkill.cpp" />
+    <ClCompile Include="DAEMA_Samurai.cpp">
+      <Filter>01.GameObject\02.Enemy_Unit</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Client.ico">
+      <Filter>99.Default</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>99.Default</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>99.Default</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Default</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cursor1.cur" />
+    <None Include="cursor2.cur" />
+    <None Include="cursor_normal.cur" />
+  </ItemGroup>
+</Project>

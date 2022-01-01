@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B0553328-0DBF-4D36-91F6-CEA9D905691C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Client</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Headers/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Headers/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Headers\Extern.h" />
+    <ClInclude Include="Archer.h" />
+    <ClInclude Include="BulletEffect.h" />
+    <ClInclude Include="Bullet_Player.h" />
+    <ClInclude Include="CAStar_Manager.h" />
+    <ClInclude Include="CBossHPbar.h" />
+    <ClInclude Include="CCamera.h" />
+    <ClInclude Include="CdmgNumber2.h" />
+    <ClInclude Include="CExPBar_Player.h" />
+    <ClInclude Include="CFireBoom_Skill.h" />
+    <ClInclude Include="CGageBar.h" />
+    <ClInclude Include="CHPbar_Object.h" />
+    <ClInclude Include="CHPBar_Player.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="CLoading.h" />
+    <ClInclude Include="CMapObject.h" />
+    <ClInclude Include="CMouse.h" />
+    <ClInclude Include="CMPBar_Player.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="Collison_Manager.h" />
+    <ClInclude Include="CQuest.h" />
+    <ClInclude Include="CriticalEffect.h" />
+    <ClInclude Include="CSkill1_Player.h" />
+    <ClInclude Include="CSoundMgr.h" />
+    <ClInclude Include="CTDmgNumber.h" />
+    <ClInclude Include="DAEMADO_Scene.h" />
+    <ClInclude Include="DAEMA_Boss.h" />
+    <ClInclude Include="DAEMA_Dash.h" />
+    <ClInclude Include="DAEMA_Samurai.h" />
+    <ClInclude Include="DAEMA_Shield.h" />
+    <ClInclude Include="DAEMA_Skill.h" />
+    <ClInclude Include="DmgNumber.h" />
+    <ClInclude Include="FireArrowSkill.h" />
+    <ClInclude Include="FireArrow_Player.h" />
+    <ClInclude Include="Frame_Manager.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObject_Manager.h" />
+    <ClInclude Include="Graphic_Device.h" />
+    <ClInclude Include="HanYang_Scene.h" />
+    <ClInclude Include="JangGumIName.h" />
+    <ClInclude Include="Janggum_Skill.h" />
+    <ClInclude Include="Japan_Boss.h" />
+    <ClInclude Include="Japan_infantry.h" />
+    <ClInclude Include="Key_Manager.h" />
+    <ClInclude Include="KwangHwa_Scene.h" />
+    <ClInclude Include="KwangHwa_Scene2.h" />
+    <ClInclude Include="MainApp.h" />
+    <ClInclude Include="Multi_Texture.h" />
+    <ClInclude Include="M_AStar_Manager.h" />
+    <ClInclude Include="NPC_Leewonik.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PowerBullet_Player.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RoyalGuard.h" />
+    <ClInclude Include="RoyalGuardName.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Scene_Manager.h" />
+    <ClInclude Include="Scroll_Manager.h" />
+    <ClInclude Include="Single_Texture.h" />
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="Start_Scene.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SummonName.h" />
+    <ClInclude Include="Summon_GwonYool.h" />
+    <ClInclude Include="Summon_Janggum.h" />
+    <ClInclude Include="Summon_Kimsimin.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Texture_Manager.h" />
+    <ClInclude Include="Time_Manager.h" />
+    <ClInclude Include="TopHP.h" />
+    <ClInclude Include="TopHPbar.h" />
+    <ClInclude Include="WaterArrowSkill.h" />
+    <ClInclude Include="WaterArrow_Player.h" />
+    <ClInclude Include="West_Boss.h" />
+    <ClInclude Include="West_Bullet.h" />
+    <ClInclude Include="West_infantry.h" />
+    <ClInclude Include="West_Rifleman.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="BulletEffect.cpp" />
+    <ClCompile Include="Bullet_Player.cpp" />
+    <ClCompile Include="CAStar_Manager.cpp" />
+    <ClCompile Include="CBossHPbar.cpp" />
+    <ClCompile Include="CCamera.cpp" />
+    <ClCompile Include="CdmgNumber2.cpp" />
+    <ClCompile Include="CExPBar_Player.cpp" />
+    <ClCompile Include="CFireBoom_Skill.cpp" />
+    <ClCompile Include="CGageBar.cpp" />
+    <ClCompile Include="CHPbar_Object.cpp" />
+    <ClCompile Include="CHPBar_Player.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="CLoading.cpp" />
+    <ClCompile Include="CMapObject.cpp" />
+    <ClCompile Include="CMouse.cpp" />
+    <ClCompile Include="CMPBar_Player.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Collison_Manager.cpp" />
+    <ClCompile Include="CQuest.cpp" />
+    <ClCompile Include="CriticalEffect.cpp" />
+    <ClCompile Include="CSkill1_Player.cpp" />
+    <ClCompile Include="CSoundMgr.cpp" />
+    <ClCompile Include="CTDmgNumber.cpp" />
+    <ClCompile Include="DAEMADO_Scene.cpp" />
+    <ClCompile Include="DAEMA_Boss.cpp" />
+    <ClCompile Include="DAEMA_Dash.cpp" />
+    <ClCompile Include="DAEMA_Samurai.cpp" />
+    <ClCompile Include="DAEMA_Shield.cpp" />
+    <ClCompile Include="DAEMA_Skill.cpp" />
+    <ClCompile Include="DmgNumber.cpp" />
+    <ClCompile Include="FireArrowSkill.cpp" />
+    <ClCompile Include="FireArrow_Player.cpp" />
+    <ClCompile Include="Frame_Manager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObject_Manager.cpp" />
+    <ClCompile Include="Graphic_Device.cpp" />
+    <ClCompile Include="HanYang_Scene.cpp" />
+    <ClCompile Include="JangGumIName.cpp" />
+    <ClCompile Include="Janggum_Skill.cpp" />
+    <ClCompile Include="Japan_Boss.cpp" />
+    <ClCompile Include="Japan_infantry.cpp" />
+    <ClCompile Include="Key_Manager.cpp" />
+    <ClCompile Include="KwangHwa_Scene.cpp" />
+    <ClCompile Include="KwangHwa_Scene2.cpp" />
+    <ClCompile Include="MainApp.cpp" />
+    <ClCompile Include="Multi_Texture.cpp" />
+    <ClCompile Include="M_AStar_Manager.cpp" />
+    <ClCompile Include="NPC_Leewonik.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PowerBullet_Player.cpp" />
+    <ClCompile Include="RoyalGuard.cpp" />
+    <ClCompile Include="RoyalGuardName.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Scene_Manager.cpp" />
+    <ClCompile Include="Scroll_Manager.cpp" />
+    <ClCompile Include="Single_Texture.cpp" />
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Start_Scene.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SummonName.cpp" />
+    <ClCompile Include="Summon_GwonYool.cpp" />
+    <ClCompile Include="Summon_Janggum.cpp" />
+    <ClCompile Include="Summon_Kimsimin.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Texture_Manager.cpp" />
+    <ClCompile Include="Time_Manager.cpp" />
+    <ClCompile Include="TopHP.cpp" />
+    <ClCompile Include="TopHPbar.cpp" />
+    <ClCompile Include="WaterArrowSkill.cpp" />
+    <ClCompile Include="WaterArrow_Player.cpp" />
+    <ClCompile Include="West_Boss.cpp" />
+    <ClCompile Include="West_Bullet.cpp" />
+    <ClCompile Include="West_infantry.cpp" />
+    <ClCompile Include="West_Rifleman.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Client.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cursor1.cur" />
+    <None Include="cursor2.cur" />
+    <None Include="cursor_normal.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
