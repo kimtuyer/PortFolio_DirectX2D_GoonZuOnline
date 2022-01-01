@@ -33,7 +33,8 @@ CPlayer::~CPlayer()
 HRESULT CPlayer::Ready_GameObject()
 {
 
-	m_tInfo.vPos = { 850.f, 420.f, 0.f };
+	//m_tInfo.vPos = { 850.f, 420.f, 0.f };
+	m_tInfo.vPos = { 860.f, 420.f, 0.f };
 
 	m_HP = 10000;
 	vMouse = { 0, 0, 0.f };
