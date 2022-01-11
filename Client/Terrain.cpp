@@ -16,6 +16,10 @@ HRESULT CTerrain::Create_PlayerGraph_Terrain()
 {
 	m_vecGraph.resize(TILEX * TILEY); 
 
+
+
+
+
 	for (int i = 0; i < TILEY; ++i)
 	{
 		for (int j = 0; j < TILEX; ++j)
@@ -121,6 +125,8 @@ HRESULT CTerrain::Create_MonsterGraph_Terrain()
 		for (int j = 0; j < TILEX; ++j)
 		{
 			int iIndex = j + (i * TILEX);
+
+
 			// 일단 좌 상단
 			if (0 != i && iIndex % (TILEX * 2) != 0)
 			{
@@ -131,8 +137,7 @@ HRESULT CTerrain::Create_MonsterGraph_Terrain()
 				
 
 				////위
-				////if(i!=0 && i!=1   && j!=TILEX-1 && 0 == m_vecTile[iIndex - (TILEX + 1)]->byOption)
-				////m_vecGraph[iIndex].emplace_back(m_vecTile[iIndex - (TILEX * 2)]);
+				
 				if (i != 0 && i != 1 && j != TILEX - 1 && 0 == m_vecTile[iIndex - (TILEX * 2)]->byOption)
 					m_vecMonsterGraph[iIndex].emplace_back(m_vecTile[iIndex - (TILEX * 2)]);
 				

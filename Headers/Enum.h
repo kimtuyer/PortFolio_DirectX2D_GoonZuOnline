@@ -6,7 +6,11 @@ enum ID { TERRAIN, Heal,PLAYER, PlayerPowerBullet, PlayerBullet, Effect ,ChoSun,
 
 
 
-
+enum Target_State {
+	Target_Not,
+	Target_Out,
+	Target_In
+};
 
 enum MAP_Object{ id_2,id_31, id_33
 , id_34

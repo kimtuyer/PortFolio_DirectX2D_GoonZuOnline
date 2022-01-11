@@ -857,262 +857,9 @@ void DAEMA_Boss::Search_Enemy()
 	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
-	if (!m_beAttacked)
-	{
+	if (!m_beAttacked)	Target_Finding(ID::PLAYER);
 
-		//공격 타깃이 없을때!
-		if (m_tInfo.iAttack_Target == END)
-		{
-
-			for (int j = 0; j < ID::END; j++)
-			{
-
-				for (auto& iter = m_listGameObject[j].begin(); iter != m_listGameObject[j].end(); ++iter)
-				{
-					if (j == ID::PLAYER)
-					{
-						m_Dist = (*iter)->Get_Info().vPos - m_tInfo.vPos;
-						m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-
-						if (m_fAttack_Range > m_fDist)
-						{
-							if (m_fShortDist > m_fDist)
-							{
-								m_fShortDist = m_fDist;
-								m_tInfo.iAttack_Target = ID::PLAYER;
-								//공격 타겟의 위치 인덱스값 저장!
-								m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
-								m_bAttackState = true;
-								Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
-
-
-
-
-								//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-								//if (4.0f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-								{
-
-									//m_fShotFPSTime = 0.f;
-									Shot(m_tInfo.vPos, (*iter)->Get_Info().vPos);
-								}
-
-
-							}
-						}
-						//else
-						//{
-						//
-						//
-						//}
-
-
-
-
-					}
-					else if (j == ID::ChoSun)
-					{
-						m_Dist = (*iter)->Get_Info().vPos - m_tInfo.vPos;
-						m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-
-						if (m_fAttack_Range > m_fDist)
-						{
-							if (m_fShortDist > m_fDist)
-							{
-								m_fShortDist = m_fDist;
-								m_tInfo.iAttack_Target = ID::ChoSun;
-								//공격 타겟의 위치 인덱스값 저장!
-								m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
-								Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
-								m_bAttackState = true;
-
-								//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-								//if (1.0f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-								{
-
-									//	m_fShotFPSTime = 0.f;
-									Shot(m_tInfo.vPos, (*iter)->Get_Info().vPos);
-								}
-
-							}
-						}
-						//else
-						//{
-						//	m_vecMonster[i]->iAttack_Target = ID::MAP;
-						//}
-					}
-
-					//else if (j == ID::MAP)
-					//{
-					//	int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
-					//	for (int k = 0; k < size; k++)
-					//	{
-					//		if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
-					//		{
-					//			D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
-					//
-					//			m_Dist = vPos - m_tInfo.vPos;
-					//			m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-					//
-					//			if (m_fAttack_Range > m_fDist)
-					//			{
-					//				if (m_fShortDist >= m_fDist)
-					//				{
-					//					m_fShortDist = m_fDist;
-					//					m_tInfo.iAttack_Target = ID::MAP;
-					//					//공격 타겟의 위치 인덱스값 저장!
-					//					m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
-					//					Change_Animation(&m_tInfo, vPos);
-					//
-					//
-					//					//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-					//					//if (1.0f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-					//					{
-					//
-					//						//m_fShotFPSTime = 0.f;
-					//						Shot(m_tInfo.vPos, (*iter)->Get_Info().vPos);
-					//					}
-					//					//return;
-					//
-					//				}
-					//			}
-					//			//return;
-					//
-					//		}
-					//	}
-					//	//int size= 
-					//
-					//
-					//
-					//	//else
-					//	//{
-					//	//	m_vecMonster[i]->iAttack_Target = ID::MAP;
-					//	//}
-					//
-					//
-					//
-					//
-					//}
-
-
-
-
-					//else
-					//	++iter;
-				}
-
-
-			}
-		}
-		else //공격타겟이 이미 있는경우
-		{
-			if (m_tInfo.iAttack_Target == ID::PLAYER)
-			{
-				D3DXVECTOR3 vPos = m_listGameObject[ID::PLAYER].front()->Get_Info().vPos;
-				m_Dist = vPos - m_tInfo.vPos;
-				m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-
-				if (m_fAttack_Range > m_fDist)
-				{
-					if (m_fShortDist >= m_fDist)
-					{
-						m_fShortDist = m_fDist;
-						m_tInfo.iAttack_Target = ID::PLAYER;
-						//공격 타겟의 위치 인덱스값 저장!
-						m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
-						m_bAttackState = true;
-						Change_Animation(&m_tInfo, vPos);
-						//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-						//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-						{
-
-							//m_fShotFPSTime = 0.f;
-							Shot(m_tInfo.vPos, vPos);
-						}
-
-					}
-				}
-				else
-				{
-					//공격 타겟이 플레이어or 소환영웅내지 조선군은 현재공격타겟이 죽을대까지 움직임변경x,여기선 플레이어
-					//추적만 신경쓰면 될듯!
-					m_bAttackState = false;
-					m_tInfo.iAttack_Target = ID::PLAYER; //새로 추적할 타깃변경
-					m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
-						vPos);
-					//M_AStar_Manager::Get_Instance()->StartAStar_Manager(m_vecMonster[i]->vPos, 
-					//	vPos);
-
-					//플레이어를 추적 목표 잡고 이동시작!
-
-
-				}
-
-
-
-
-			}
-			else if (m_tInfo.iAttack_Target == ID::ChoSun)
-			{
-				//m_Dist = (*iter)->Get_Info().vPos - m_vecMonster[i]->vPos;
-				//m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-				//
-				//if (m_fAttack_Range > m_fDist)
-				//{
-				//	if (m_fShortDist > m_fDist)
-				//	{
-				//		m_fShortDist = m_fDist;
-				//		m_vecMonster[i]->iAttack_Target = ID::ChoSun;
-				//		//공격 타겟의 위치 인덱스값 저장!
-				//		m_vecMonster[i]->GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
-				//		Change_Animation(m_vecMonster[i], (*iter)->Get_Info().vPos);
-				//
-				//
-				//
-				//	}
-				//}
-				////else
-				//{
-				//	m_vecMonster[i]->iAttack_Target = ID::MAP;
-				//}
-			}
-			else if (m_tInfo.iAttack_Target == ID::MAP)
-			{
-				D3DXVECTOR3 vPos;
-				for (auto& iter = m_listGameObject[MAP].begin(); iter != m_listGameObject[MAP].end(); ++iter)
-				{
-
-					int Mapsize = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
-					for (int k = 0; k < Mapsize; k++)
-					{
-						if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
-						{
-							vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
-							break;
-						}
-
-					}
-
-				}
-				//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-				//if (1.0f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-				{
-
-					//m_fShotFPSTime = 0.f;
-					Shot(m_tInfo.vPos, vPos);
-				}
-
-
-
-
-
-
-
-			}
-
-			//공격타겟 있을경우 해당타깃이 공격범위 벗어났을 경우 체크!
-
-		}
-	}
+	
 	else //공격받았을 경우
 	{
 
@@ -1120,41 +867,15 @@ void DAEMA_Boss::Search_Enemy()
 
 		{
 			D3DXVECTOR3 vPos = m_listGameObject[ID::PLAYER].front()->Get_Info().vPos;
-			m_Dist = vPos - m_tInfo.vPos;
-			m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
 
-			if (m_fAttack_Range > m_fDist)
+			if(Target_Finding(ID::PLAYER)==Target_State::Target_In)
+				CSoundMgr::Get_Instance()->PlaySound(L"KINGYACHA_Attack1.wav", CSoundMgr::MONSTER);
+
+
+			if(m_fAttack_Range < m_fDist &&  m_fDist <= TILECX*4)
 			{
 				
-				if (m_fShortDist >= m_fDist)
-				{
-					m_fShortDist = m_fDist;
-					m_tInfo.iAttack_Target = ID::PLAYER;
-					//공격 타겟의 위치 인덱스값 저장!
-					m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
-					m_bAttackState = true;
-					Change_Animation(&m_tInfo, vPos);
-
-					CSoundMgr::Get_Instance()->PlaySound(L"KINGYACHA_Attack1.wav", CSoundMgr::MONSTER);
-					
-
-					//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-					//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-					{
-
-						//m_fShotFPSTime = 0.f;
-						Shot(m_tInfo.vPos, vPos);
-					}
-
-				}
-			}
-			else if(m_fAttack_Range < m_fDist &&  m_fDist <= TILECX*4)
-			{
-				//공격 타겟이 플레이어or 소환영웅내지 조선군은 현재공격타겟이 죽을대까지 움직임변경x,여기선 플레이어
-				//추적만 신경쓰면 될듯!
-				m_bAttackState = true; 
-				m_tInfo.iAttack_Target = ID::PLAYER; //새로 추적할 타깃변경
-				//m_listRoute.emplace_back(new M_AStar_Manager(m_tInfo.vPos, vPos));
+			
 				Dash_Animation(&m_tInfo, vPos);
 
 				CSoundMgr::Get_Instance()->PlaySound(L"sura_attack.wav", CSoundMgr::MONSTER);
@@ -1172,21 +893,14 @@ void DAEMA_Boss::Search_Enemy()
 				}
 
 
-
 				m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
 					vPos);
-				//M_AStar_Manager::Get_Instance()->StartAStar_Manager(m_vecMonster[i]->vPos, 
-				//	vPos);
-
-				//플레이어를 추적 목표 잡고 이동시작!
-
+			
 
 			}
 			else if (m_fDist > TILECX * 4  && m_fDist <= TILECX * 6)
 			{
-				m_bAttackState = true;
-				m_tInfo.iAttack_Target = ID::PLAYER; //새로 추적할 타깃변경
-				//m_listRoute.emplace_back(new M_AStar_Manager(m_tInfo.vPos, vPos));
+			
 				Skill_Animation(&m_tInfo, vPos);
 
 				CSoundMgr::Get_Instance()->PlaySound(L"sura_attack1.wav", CSoundMgr::MONSTER);
@@ -1224,9 +938,7 @@ void DAEMA_Boss::Search_Enemy()
 			}
 			else
 			{
-				m_bAttackState = false;
-				m_tInfo.iAttack_Target = ID::PLAYER; //새로 추적할 타깃변경
-				//m_listRoute.emplace_back(new M_AStar_Manager(m_tInfo.vPos, vPos));
+				
 				
 				m_fShieldFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
 				if (0.2f <= m_fShieldFPSTime)
@@ -1252,44 +964,8 @@ void DAEMA_Boss::Search_Enemy()
 		{
 
 			D3DXVECTOR3 vPos = m_listGameObject[ID::ChoSun].front()->Get_Info().vPos;
-			m_Dist = vPos - m_tInfo.vPos;
-			m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
+			Target_Finding(ID::ChoSun);
 
-			if (m_fAttack_Range > m_fDist)
-			{
-				if (m_fShortDist >= m_fDist)
-				{
-					m_fShortDist = m_fDist;
-					m_tInfo.iAttack_Target = ID::ChoSun;
-					//공격 타겟의 위치 인덱스값 저장!
-					m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
-					m_bAttackState = true;
-					Change_Animation(&m_tInfo, vPos);
-					//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
-					//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
-					{
-
-						//m_fShotFPSTime = 0.f;
-						Shot(m_tInfo.vPos, vPos);
-					}
-
-				}
-			}
-			else
-			{
-				//공격 타겟이 플레이어or 소환영웅내지 조선군은 현재공격타겟이 죽을대까지 움직임변경x,여기선 플레이어
-				//추적만 신경쓰면 될듯!
-				m_bAttackState = false;
-				m_tInfo.iAttack_Target = ID::ChoSun; //새로 추적할 타깃변경
-				m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
-					vPos);
-				//M_AStar_Manager::Get_Instance()->StartAStar_Manager(m_vecMonster[i]->vPos, 
-				//	vPos);
-
-				//플레이어를 추적 목표 잡고 이동시작!
-
-
-			}
 
 
 		}

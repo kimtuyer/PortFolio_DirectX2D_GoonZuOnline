@@ -30,10 +30,8 @@ void M_AStar_Manager::StartAStar_Manager(const D3DXVECTOR3 & vStartPos, const D3
 
 	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
-	//여러개의 옵션값을 줄경우 이렇게 조건을 걸게 되면 뭐한다? 
-	//안가. 
-	if (0 != vecTile[iGoalIndex]->byOption)
-		return;
+
+	if (0 != vecTile[iGoalIndex]->byOption)	return;
 
 	if (PathFinding_AStar_Manager(vStartPos,m_iStartIndex, vGoalPos,iGoalIndex))
 		Make_Route(iGoalIndex);
@@ -79,37 +77,6 @@ bool M_AStar_Manager::PathFinding_AStar_Manager(D3DXVECTOR3 vStartPos, int iStar
 		pTile->iParentIndex = iStartIndex;
 		m_OpenList.emplace_back(pTile->iIndex);
 	}
-
-	/*
-	현 타일에서 갈수있는 4방위타일 openlist포함 후 목표인덱스와 현 start인덱스 
-	*/
-	//우상단
-	D3DXVECTOR3 vdir = vGoalPos - vStartPos;
-	if(vdir.x>0 && iStartIndex> iGoalIndex)//start지점 인덱스 가로 줄보다 위에있냐 아래에 있냐
-	{
-	
-	}
-	
-	////우하단
-	//else if (vdir.x > 0 && iStartIndex < iGoalIndex)
-	//{ }
-	//
-	////좌상단
-	//else if (vdir.x < 0 && iStartIndex > iGoalIndex)
-	//{ }
-	//
-	//
-	////좌하단
-	//else if (vdir.x < 0 && iStartIndex < iGoalIndex)
-	//{ }
-
-
-
-	
-
-
-
-
 
 
 	// 이경우에 걸린다?? 그럼 모든 타일을 전부다 순회했다라는 말. 

@@ -13,11 +13,9 @@ CAStar_Manager::~CAStar_Manager()
 
 void CAStar_Manager::StartAStar_Manager(const D3DXVECTOR3 & vStartPos, const D3DXVECTOR3 & vGoalPos)
 {
-	// 10분뒤에. 
-	// 아 이제 에이스타를 돌려야 겠구나~ 라는 생각이 들지. 
+	
 	m_OpenList.clear();
 	m_CloseList.clear();
-	// 이건 클리어만 해야한다~? 알겠죠 ??
 
 	m_BestList.clear();
 
@@ -31,8 +29,7 @@ void CAStar_Manager::StartAStar_Manager(const D3DXVECTOR3 & vStartPos, const D3D
 
 	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
-	//여러개의 옵션값을 줄경우 이렇게 조건을 걸게 되면 뭐한다? 
-	//안가. 
+
 	if (0 != vecTile[iGoalIndex]->byOption)
 		return;
 
