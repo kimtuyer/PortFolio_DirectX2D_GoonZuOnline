@@ -46,42 +46,8 @@ public:
 	//사정거리 내 적 위치 탐색
 	void Search_Enemy();
 	
-	Target_State Target_Finding(int ObjectID)
-	{
-			if (m_listGameObject[ObjectID].empty())	return Target_State::Target_Not;
-
-			for (auto& iter = m_listGameObject[ObjectID].begin(); iter != m_listGameObject[ObjectID].end(); ++iter)
-			{
-
-				m_Dist = (*iter)->Get_Info().vPos - m_tInfo.vPos;
-				m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
-
-				if (m_fAttack_Range > m_fDist)
-				{
-					if (m_fShortDist > m_fDist)
-					{
-						m_fShortDist = m_fDist;
-						m_tInfo.iAttack_Target = ObjectID;
-						m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
-						m_bAttackState = true;
-
-						Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
-
-						Shot(m_tInfo.vPos, (*iter)->Get_Info().vPos);
-
-
-
-					}
-					return Target_State::Target_In;
-				}
-				else
-					return Target_State::Target_Out;
-
-
-			}
-			
-		
-	}
+	Target_State Target_Finding(int ObjectID);
+	
 
 
 

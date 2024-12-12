@@ -232,8 +232,8 @@ HRESULT KwangHwa_Scene::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT KwangHwa_Scene::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"music_daemaisland.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"music_daemaisland.ogg");
 	++callnumber;
 
 	CGameObject* pObject = nullptr;

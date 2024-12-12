@@ -53,9 +53,17 @@ HRESULT CPlayer::Ready_GameObject()
 	//m_pGameObject_Manager->Add_GameObject_Manager(ID::PlayerBullet, pBullet);
 
 	pBullet2 = new PowerBullet_Player;
+
+	if (FAILED(pBullet2->Ready_GameObject()))
+		return E_FAIL;
+
 	m_pGameObject_Manager->Add_GameObject_Manager(ID::PlayerBullet, pBullet2);
 
 	pBullet3 = new PowerBullet_Player;
+
+	if (FAILED(pBullet3->Ready_GameObject()))
+		return E_FAIL;
+
 	m_pGameObject_Manager->Add_GameObject_Manager(ID::PlayerBullet, pBullet3);
 	return S_OK;
 }
@@ -325,7 +333,7 @@ int CPlayer::Update_GameObject()
 	else if ((GetAsyncKeyState(VK_RBUTTON) & 0x8000) &&
 	GetAsyncKeyState(VK_F2) & 0x8000)
 	{
-	CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Fireball_Fire1.wav", CSoundMgr::PLAYER);
+	//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Fireball_Fire1.wav", CSoundMgr::PLAYER);
 
 
 	m_AttackState = 1;
@@ -389,7 +397,7 @@ int CPlayer::Update_GameObject()
 	else if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
 	{
 	
-	CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Fire1.wav", CSoundMgr::PLAYER);
+	//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Fire1.wav", CSoundMgr::PLAYER);
 
 		m_AttackState = 1;
 

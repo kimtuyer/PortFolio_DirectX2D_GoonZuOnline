@@ -129,7 +129,7 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 								)
 							{
 
-								CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Hit1.wav", CSoundMgr::PLAYER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Hit1.wav", CSoundMgr::PLAYER);
 
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
@@ -142,7 +142,7 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 							}
 							else if (pDstObject->Get_bulletid() == Bullet_ID::fire)
 							{
-								CSoundMgr::Get_Instance()->PlaySound(L"magic_fireball_hit2.wav", CSoundMgr::PLAYER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"magic_fireball_hit2.wav", CSoundMgr::PLAYER);
 
 
 								pCriticalEffect = new CriticalEffect;
@@ -323,7 +323,7 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 								)
 							{
 
-								CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Hit1.wav", CSoundMgr::PLAYER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Arrow_Hit1.wav", CSoundMgr::PLAYER);
 
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
@@ -336,7 +336,7 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 							}
 							else if (pDstObject->Get_bulletid() == Bullet_ID::fire)
 							{
-								CSoundMgr::Get_Instance()->PlaySound(L"magic_fireball_hit2.wav", CSoundMgr::PLAYER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"magic_fireball_hit2.wav", CSoundMgr::PLAYER);
 
 
 								pCriticalEffect = new CriticalEffect;
@@ -672,7 +672,7 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 							//몬스터 공격받음 전달.
 							pSrcObject->Set_beAttacked();
 							//pSrcObject->Set_beAttackTarget(ID::ChoSun);
-							CSoundMgr::Get_Instance()->PlaySound(L"sura_attack.wav", CSoundMgr::MONSTER);
+							//CSoundMgr::Get_Instance()->PlaySound(L"sura_attack.wav", CSoundMgr::MONSTER);
 
 
 

@@ -231,8 +231,8 @@ HRESULT CStage::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT CStage::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"Music_MuhanBattle.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"Music_MuhanBattle.ogg");
 	number = 4;
 	CGameObject* pObject = nullptr;
 	LoadData_TILEObject(L"../Data/NamHanCastle_TileData.dat");

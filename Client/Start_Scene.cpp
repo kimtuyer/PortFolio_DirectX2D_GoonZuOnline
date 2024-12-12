@@ -169,13 +169,30 @@ HRESULT Start_Scene::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT Start_Scene::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"music_village01.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"music_village01.ogg");
 
 	number = 1;
 
+	LoadData_TILEObject(L"../Data/Start_TileData.dat");
 
 	CGameObject* pObject = nullptr;
+
+	pObject = new CMouse;
+
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	//CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::Mouse, pObject);
+
+	pObject = new CPlayer;
+
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	D3DXVECTOR3 Pos = { 927,559,0 };  //1412 269
+	pObject->Set_Pos(Pos);
+	CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::PLAYER, pObject);
 
 
 	pObject = new CGageBar;
@@ -208,7 +225,6 @@ HRESULT Start_Scene::Ready_Scene()
 
 
 
-	LoadData_TILEObject(L"../Data/Start_TileData.dat");
 
 
 
@@ -221,22 +237,22 @@ HRESULT Start_Scene::Ready_Scene()
 	//
 	//m_pGameObject_Manager->Add_GameObject_Manager(ID::Bullet, pObject);
 
-	pObject = new CMouse;
+	//pObject = new CMouse;
+	//
+	//if (FAILED(pObject->Ready_GameObject()))
+	//	return E_FAIL;
+	////CCamera::Get_Instance()->SetTarget(pObject);
+	//m_pGameObject_Manager->Add_GameObject_Manager(ID::Mouse, pObject);
 
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL;
+
+	//pObject = new CPlayer;
+	//
+	//if (FAILED(pObject->Ready_GameObject()))
+	//	return E_FAIL;
+	//D3DXVECTOR3 Pos = { 927,559,0 };  //1412 269
+	//pObject->Set_Pos(Pos);
 	//CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::Mouse, pObject);
-
-
-	pObject = new CPlayer;
-
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL;
-	D3DXVECTOR3 Pos = { 927,559,0 };  //1412 269
-	pObject->Set_Pos(Pos);
-	CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::PLAYER, pObject);
+	//m_pGameObject_Manager->Add_GameObject_Manager(ID::PLAYER, pObject);
 
 
 	pObject = new RoyalGuard;

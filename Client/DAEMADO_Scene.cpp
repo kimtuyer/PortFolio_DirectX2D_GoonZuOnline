@@ -242,8 +242,8 @@ HRESULT DAEMADO_Scene::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT DAEMADO_Scene::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"Music_commander.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"Music_commander.ogg");
 
 	LoadData_TILEObject(L"../Data/DAEMA_TileData.dat");
 

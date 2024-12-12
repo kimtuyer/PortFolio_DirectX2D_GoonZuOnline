@@ -1447,8 +1447,8 @@ HRESULT CLoading::Ready_Scene()
 	if (nullptr == m_hThread)
 		return E_FAIL;
 	
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"Music_Login.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"Music_Login.ogg");
 	return S_OK;
 }
 

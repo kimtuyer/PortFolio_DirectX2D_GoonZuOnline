@@ -231,8 +231,8 @@ HRESULT HanYang_Scene::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT HanYang_Scene::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"music_war.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"music_war.ogg");
 
 
 	CGameObject* pObject = nullptr;

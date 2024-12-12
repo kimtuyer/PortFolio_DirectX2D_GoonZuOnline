@@ -44,5 +44,7 @@ private:
 	FMOD_CHANNEL* m_pChannelArr[MAXCHANNEL];
 	// 사운드 ,채널 객체 및 장치를 관리하는 객체 
 	FMOD_SYSTEM* m_pSystem;
+
+	FMOD_CHANNELGROUP* m_pChannerGroup;
 };
 

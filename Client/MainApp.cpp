@@ -67,7 +67,7 @@ HRESULT CMainApp::Ready_MainApp()
 	//if (FAILED(CTexture_Manager::Get_Instance()->Insert_Texture_Manager(CTexture_Manager::TEX_MULTI,
 	//	L"../Texture/Stage/Player/Stand/%d.bmp", L"Player", rgb, L"Attack", 20)))
 	//	return E_FAIL;
-	CSoundMgr::Get_Instance()->Initialize();
+	//CSoundMgr::Get_Instance()->Initialize();
 
 
 

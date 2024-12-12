@@ -211,7 +211,7 @@ void West_Rifleman::Search_Enemy()
 								m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
 								Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
 								
-								CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 								m_bAttackState = true;
 								//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
@@ -249,7 +249,7 @@ void West_Rifleman::Search_Enemy()
 								//공격 타겟의 위치 인덱스값 저장!
 								m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
 								Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
-								CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+								//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 								//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
 								//if (1.0f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
@@ -288,7 +288,7 @@ void West_Rifleman::Search_Enemy()
 										//공격 타겟의 위치 인덱스값 저장!
 										m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
 										Change_Animation(&m_tInfo, vPos);
-										CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+										//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 
 										//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
@@ -347,7 +347,7 @@ void West_Rifleman::Search_Enemy()
 						//공격 타겟의 위치 인덱스값 저장!
 						m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
 						Change_Animation(&m_tInfo, vPos);
-						CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+						//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 						//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
 						//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
@@ -468,7 +468,7 @@ void West_Rifleman::Search_Enemy()
 				m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
 				m_bAttackState = true;
 				Change_Animation(&m_tInfo, vPos);
-				CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+				//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 				//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
 				//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생
@@ -513,7 +513,7 @@ void West_Rifleman::Search_Enemy()
 				m_tInfo.GoalIndex = pTerrain->Get_TileIndex(vPos);
 				m_bAttackState = true;
 				Change_Animation(&m_tInfo, vPos);
-				CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
+				//CSoundMgr::Get_Instance()->PlaySound(L"Bullet_Gun_Fire1.wav", CSoundMgr::MONSTER);
 
 				//m_fShotFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
 				//if (0.5f <= m_fShotFPSTime) //0.035 설정시 6마리 ~50fps ,4마리는 6~7fps  //8마리부턴 움직임이상현상발생

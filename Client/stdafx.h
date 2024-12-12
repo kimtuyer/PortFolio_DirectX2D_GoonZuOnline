@@ -20,20 +20,19 @@
 #include <functional>
 
 
-// 사운드
+// 사운드 fmod_vc
+ #pragma comment(lib, "fmod_vc.lib")
+//#pragma comment(lib, "fmodex_vc.lib")
 #include <io.h>
-#include "fmod.h"
-#pragma comment(lib, "fmodex_vc.lib")
+#include <fmod.h>
 
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
 
 // 벡터의 크기는 피타고라스의 정리를 이용하여 구해줄 수 있다. 
-#include "Headers.h"
-
 #pragma comment(lib, "d3d9.lib")
-
 #pragma comment(lib, "d3dx9.lib")
 
+#include "../Headers/Headers.h"
 #include "Scroll_Manager.h"
 #include "Time_Manager.h"
 #include "GameObject_Manager.h"

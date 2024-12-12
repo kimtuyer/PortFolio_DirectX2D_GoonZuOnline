@@ -147,8 +147,8 @@ HRESULT KwangHwa_Scene2::LoadData_Object(const wstring & wstrFilePath)
 
 HRESULT KwangHwa_Scene2::Ready_Scene()
 {
-	CSoundMgr::Get_Instance()->StopAll();
-	CSoundMgr::Get_Instance()->PlayBGM(L"music_dosunpalace.ogg");
+	//CSoundMgr::Get_Instance()->StopAll();
+	//CSoundMgr::Get_Instance()->PlayBGM(L"music_dosunpalace.ogg");
 	number = 4;
 	CGameObject* pObject = nullptr;
 	LoadData_TILEObject(L"../Data/Kwanghwa_TileData2.dat");

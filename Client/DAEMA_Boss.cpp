@@ -869,7 +869,7 @@ void DAEMA_Boss::Search_Enemy()
 			D3DXVECTOR3 vPos = m_listGameObject[ID::PLAYER].front()->Get_Info().vPos;
 
 			if(Target_Finding(ID::PLAYER)==Target_State::Target_In)
-				CSoundMgr::Get_Instance()->PlaySound(L"KINGYACHA_Attack1.wav", CSoundMgr::MONSTER);
+				//CSoundMgr::Get_Instance()->PlaySound(L"KINGYACHA_Attack1.wav", CSoundMgr::MONSTER);
 
 
 			if(m_fAttack_Range < m_fDist &&  m_fDist <= TILECX*4)
@@ -878,7 +878,7 @@ void DAEMA_Boss::Search_Enemy()
 			
 				Dash_Animation(&m_tInfo, vPos);
 
-				CSoundMgr::Get_Instance()->PlaySound(L"sura_attack.wav", CSoundMgr::MONSTER);
+				//CSoundMgr::Get_Instance()->PlaySound(L"sura_attack.wav", CSoundMgr::MONSTER);
 
 				m_fDashFPSTime+= CTime_Manager::Get_Instance()->Get_DeltaTime();
 				if (0.15f <= m_fDashFPSTime)
@@ -903,7 +903,7 @@ void DAEMA_Boss::Search_Enemy()
 			
 				Skill_Animation(&m_tInfo, vPos);
 
-				CSoundMgr::Get_Instance()->PlaySound(L"sura_attack1.wav", CSoundMgr::MONSTER);
+				//CSoundMgr::Get_Instance()->PlaySound(L"sura_attack1.wav", CSoundMgr::MONSTER);
 
 			
 				m_fSkillFPSTime += CTime_Manager::Get_Instance()->Get_DeltaTime();
@@ -971,6 +971,45 @@ void DAEMA_Boss::Search_Enemy()
 		}
 
 	}
+}
+
+Target_State DAEMA_Boss::Target_Finding(int ObjectID)
+{
+	
+		if (m_listGameObject[ObjectID].empty())	return Target_State::Target_Not;
+
+		for (auto& iter = m_listGameObject[ObjectID].begin(); iter != m_listGameObject[ObjectID].end(); ++iter)
+		{
+
+			m_Dist = (*iter)->Get_Info().vPos - m_tInfo.vPos;
+			m_fDist = sqrtf(m_Dist.x * m_Dist.x + m_Dist.y * +m_Dist.y);
+
+			if (m_fAttack_Range > m_fDist)
+			{
+				if (m_fShortDist > m_fDist)
+				{
+					m_fShortDist = m_fDist;
+					m_tInfo.iAttack_Target = ObjectID;
+					m_tInfo.GoalIndex = pTerrain->Get_TileIndex((*iter)->Get_Info().vPos);
+					m_bAttackState = true;
+
+					Change_Animation(&m_tInfo, (*iter)->Get_Info().vPos);
+
+					Shot(m_tInfo.vPos, (*iter)->Get_Info().vPos);
+
+
+
+				}
+				return Target_State::Target_In;
+			}
+			else
+				return Target_State::Target_Out;
+
+
+		}
+
+
+	
 }
 
 HRESULT DAEMA_Boss::LoadData_Object(const wstring & wstrFilePath)
