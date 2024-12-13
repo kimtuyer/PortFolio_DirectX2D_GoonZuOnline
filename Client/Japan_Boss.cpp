@@ -51,7 +51,7 @@ HRESULT Japan_Boss::Ready_GameObject()
 	D3DXVECTOR3 tPos; //탑의 위치
 	for (auto p : m_listGameObject[Bulding])
 	{
-		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 			if (n->byDrawID == 34  ) //탑 id
 				tPos = n->vPos;
 	}
@@ -118,7 +118,7 @@ void Japan_Boss::Move()
 	//list<TILE*>& BestList = M_AStar_Manager::Get_Instance()->Get_BestList();
 	//if (BestList.empty())
 	//	return;
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	{
@@ -361,7 +361,7 @@ void Japan_Boss::Move()
 int Japan_Boss::Update_GameObject()
 {
 	//Get_DeltaTime
-	//if (!m_listBullet.empty() &&dynamic_cast<West_Bullet*>(m_listBullet.front())->Get_State()== OBJ_DEAD)
+	//if (!m_listBullet.empty() &&static_cast<West_Bullet*>(m_listBullet.front())->Get_State()== OBJ_DEAD)
 	//{
 	//	list<CGameObject*>::iterator iter = m_listBullet.begin();
 	//	//for(; iter!= m_listBullet.end(); ++iter)
@@ -375,7 +375,7 @@ int Japan_Boss::Update_GameObject()
 	//D3DXVECTOR3 tPos; //탑의 위치
 	//for (auto p : m_listGameObject[MAP])
 	//{
-	//	for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//	for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//		if (n->byDrawID == 34) //탑 id
 	//			tPos = n->vPos;
 	//}
@@ -576,9 +576,9 @@ HRESULT Japan_Boss::Shot(D3DXVECTOR3 &vPos, D3DXVECTOR3 &GoalPos)
 	//			{
 	//
 	//			pBullet->Set_StateON();
-	//			dynamic_cast<West_Bullet*>(pBullet)->Set_targetPos(vPos, GoalPos);
+	//			static_cast<West_Bullet*>(pBullet)->Set_targetPos(vPos, GoalPos);
 	//			}
-	//			//dynamic_cast<West_Bullet*>(pBullet)->Set
+	//			//static_cast<West_Bullet*>(pBullet)->Set
 	//
 	//
 	//
@@ -586,7 +586,7 @@ HRESULT Japan_Boss::Shot(D3DXVECTOR3 &vPos, D3DXVECTOR3 &GoalPos)
 	//			//m_pGameObject_Manager->Add_GameObject_Manager(ID::Bullet, m_listBullet.front());
 	//			////pBullet= m_pGameObject_Manager->Get_PlayerBullet();
 	//			//
-	//			//dynamic_cast<West_Bullet*>(m_listBullet.front())->Set_targetPos(vPos, GoalPos);
+	//			//static_cast<West_Bullet*>(m_listBullet.front())->Set_targetPos(vPos, GoalPos);
 	//
 	//
 	//
@@ -734,7 +734,7 @@ void Japan_Boss::Set_GoalTarget()
 	//	D3DXVECTOR3 tPos; //탑의 위치
 	//	for (auto p : m_listGameObject[MAP])
 	//	{
-	//		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//			if (n->byDrawID == 34) //탑 id
 	//				tPos = n->vPos;
 	//	}
@@ -750,7 +750,7 @@ void Japan_Boss::Set_GoalTarget()
 
 void Japan_Boss::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	if (!m_beAttacked)
 
@@ -832,12 +832,12 @@ void Japan_Boss::Search_Enemy()
 
 					else if (j == ID::Bulding)
 					{
-						int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+						int size = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 						for (int k = 0; k < size; k++)
 						{
-							if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+							if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 							{
-								D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+								D3DXVECTOR3 vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 
 								m_Dist = vPos - m_tInfo.vPos;
 								m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);

@@ -75,11 +75,11 @@ HRESULT Start_Scene::LoadData_MAPObject(const wstring & wstrFilePath)
 			pObject->byDrawID == 48 || pObject->byDrawID == 49 || pObject->byDrawID == 52 || pObject->byDrawID == 54 || pObject->byDrawID == 55 || pObject->byDrawID == 56 ||
 			pObject->byDrawID == 57 || pObject->byDrawID == 63)
 		{
-			dynamic_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
 
 		}
 		else
-			dynamic_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
 
 
 
@@ -113,7 +113,7 @@ HRESULT Start_Scene::LoadData_TILEObject(const wstring & wstrFilePath)
 			Safe_Delete(pTile);
 			break;
 		}
-		dynamic_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
+		static_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
 	}
 	if (FAILED(pTerrain->Ready_GameObject()))
 		return E_FAIL;
@@ -315,7 +315,7 @@ HRESULT Start_Scene::Ready_Scene()
 	
 
 
-
+	// Position of the chat box
 	//LoadData_Object(L"../Data/NamHanCastle_UnitData4.dat");
 
 	//pObject = new West_Rifleman;
@@ -379,6 +379,7 @@ void Start_Scene::Render_Scene()
 
 	CGraphic_Device::Get_Instance()->Get_Sprite()->SetTransform(&matWorld);
 	CGraphic_Device::Get_Instance()->Get_Sprite()->Draw(pTexInfo2->pTexture, nullptr, nullptr, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+
 
 	m_pGameObject_Manager->Render_GameObject_Manager();
 }

@@ -62,7 +62,7 @@ HRESULT Summon_Janggum::Ready_GameObject()
 
 	//for (auto p : m_listGameObject[MAP])
 	//{
-	//	for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//	for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//		if (n->byDrawID == 34) //ž id
 	//			tPos = n->vPos;
 	//}
@@ -95,7 +95,7 @@ void Summon_Janggum::FrameMove(float fSpeed)
 
 void Summon_Janggum::Move()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 
@@ -289,7 +289,7 @@ int Summon_Janggum::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		//Screento
-		pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		vMouse = { float(pt.x) + vCamera.x, float(pt.y) + vCamera.y, 0.f };
@@ -588,7 +588,7 @@ HRESULT Summon_Janggum::Shot(D3DXVECTOR3 & vPos, D3DXVECTOR3 & GoalPos)
 void Summon_Janggum::Search_Enemy()
 {
 	pPlayer = CGameObject_Manager::Get_Instance()->Get_Player();
-	if (dynamic_cast<CHPBar_Player*>(pPlayerHP)->Get_TopHP() < 172)
+	if (static_cast<CHPBar_Player*>(pPlayerHP)->Get_TopHP() < 172)
 	{
 		m_bAttackState = true;
 		m_tFrame.fFrameEnd = 17;
@@ -600,8 +600,8 @@ void Summon_Janggum::Search_Enemy()
 		{
 			m_fHealFPSTime = 0;
 			pSkill = new Janggum_Skill;
-			dynamic_cast<Janggum_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, pPlayer->Get_Info().vPos);
-			dynamic_cast<Janggum_Skill*>(pSkill)->Set_Life(1);
+			static_cast<Janggum_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, pPlayer->Get_Info().vPos);
+			static_cast<Janggum_Skill*>(pSkill)->Set_Life(1);
 			pSkill->Ready_GameObject();
 
 			m_pGameObject_Manager->Add_GameObject_Manager(ID::Heal, pSkill);

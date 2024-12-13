@@ -41,7 +41,7 @@ HRESULT DmgNumber::Ready_GameObject()
 	StateKey = L"30";
 	D3DXMatrixScaling(&matScale,1, 1, 0.f);
 	//m_vGoalPos = { 0,0,0 };
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//Set_Dir();
 	return S_OK;
 }

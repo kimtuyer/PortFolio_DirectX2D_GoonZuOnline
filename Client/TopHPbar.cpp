@@ -32,7 +32,7 @@ int TopHPbar::FrameMove(float fSpeed)
 
 HRESULT TopHPbar::Ready_GameObject()
 {
-	m_tInfo.vPos = dynamic_cast<CMapObject*>(pTop)->Get_VecTile().front()->vPos;
+	m_tInfo.vPos = static_cast<CMapObject*>(pTop)->Get_VecTile().front()->vPos;
 	m_tInfo.vDir = { 1.f, 1.f, 0.f };
 	m_tInfo.vSize = { 1.f, 1.f, 0.f };
 	//m_tInfo.vPos = { 100,30,0 };
@@ -41,7 +41,7 @@ HRESULT TopHPbar::Ready_GameObject()
 	StateKey = L"HanyangHP";
 	D3DXMatrixScaling(&matScale, 0.5, m_tInfo.vSize.y, 0.f);
 
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//Set_Dir();
 	return S_OK;
 }

@@ -39,7 +39,7 @@ HRESULT JangGumIName::Ready_GameObject()
 	StateKey = L"SummonName";
 	D3DXMatrixScaling(&matScale, m_tInfo.vSize.x, m_tInfo.vSize.y, 0.f);
 
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//Set_Dir();
 	return S_OK;
 }

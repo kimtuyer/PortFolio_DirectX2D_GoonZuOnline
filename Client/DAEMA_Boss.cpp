@@ -56,7 +56,7 @@ HRESULT DAEMA_Boss::Ready_GameObject()
 	for (auto p : m_listGameObject[PLAYER])
 	{
 		tPos=p->Get_Info().vPos;
-		//for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+		//for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 		//	if (n->byDrawID == 34) //ž id
 		//		tPos = n->vPos;
 	}
@@ -105,7 +105,7 @@ void DAEMA_Boss::FrameMove(float fSpeed)
 
 void DAEMA_Boss::Move()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	{
@@ -854,7 +854,7 @@ HRESULT DAEMA_Boss::Shot(D3DXVECTOR3 & vPos, D3DXVECTOR3 & GoalPos)
 
 void DAEMA_Boss::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	if (!m_beAttacked)	Target_Finding(ID::PLAYER);
@@ -885,8 +885,8 @@ void DAEMA_Boss::Search_Enemy()
 				{
 					m_fDashFPSTime = 0;
 				pDash = new DAEMA_Dash;
-				dynamic_cast<DAEMA_Dash*>(pDash)->Set_targetPos(m_tInfo.vPos, vPos);
-				dynamic_cast<DAEMA_Dash*>(pDash)->Set_Life(1);
+				static_cast<DAEMA_Dash*>(pDash)->Set_targetPos(m_tInfo.vPos, vPos);
+				static_cast<DAEMA_Dash*>(pDash)->Set_Life(1);
 				pDash->Ready_GameObject();
 				
 				m_pGameObject_Manager->Add_GameObject_Manager(ID::Effect, pDash);
@@ -911,16 +911,16 @@ void DAEMA_Boss::Search_Enemy()
 				{
 					m_fSkillFPSTime = 0;
 					pSkill = new DAEMA_Skill;
-					dynamic_cast<DAEMA_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
-					dynamic_cast<DAEMA_Skill*>(pSkill)->Set_Life(1);
+					static_cast<DAEMA_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
+					static_cast<DAEMA_Skill*>(pSkill)->Set_Life(1);
 					pSkill->Ready_GameObject();
 
 					m_pGameObject_Manager->Add_GameObject_Manager(ID::Effect, pSkill);
 
 
 					pSkill = new CFireBoom_Skill;
-					dynamic_cast<CFireBoom_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
-					dynamic_cast<CFireBoom_Skill*>(pSkill)->Set_Life(1);
+					static_cast<CFireBoom_Skill*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
+					static_cast<CFireBoom_Skill*>(pSkill)->Set_Life(1);
 					pSkill->Ready_GameObject();
 
 					m_pGameObject_Manager->Add_GameObject_Manager(ID::BOSS, pSkill);
@@ -946,8 +946,8 @@ void DAEMA_Boss::Search_Enemy()
 
 				m_fShieldFPSTime = 0;
 				pSkill = new DAEMA_Shield;
-				dynamic_cast<DAEMA_Shield*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
-				dynamic_cast<DAEMA_Shield*>(pSkill)->Set_Life(1);
+				static_cast<DAEMA_Shield*>(pSkill)->Set_targetPos(m_tInfo.vPos, vPos);
+				static_cast<DAEMA_Shield*>(pSkill)->Set_Life(1);
 				pSkill->Ready_GameObject();
 				m_pGameObject_Manager->Add_GameObject_Manager(ID::Effect, pSkill);
 

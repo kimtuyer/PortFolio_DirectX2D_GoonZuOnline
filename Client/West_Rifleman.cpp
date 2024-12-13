@@ -51,7 +51,7 @@ HRESULT West_Rifleman::Ready_GameObject()
 	D3DXVECTOR3 tPos; //탑의 위치
 	for (auto p : m_listGameObject[Bulding])
 	{
-		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 			if (n->byDrawID == 34 ) //탑 id
 				tPos = n->vPos;
 	}
@@ -92,7 +92,7 @@ void West_Rifleman::FrameMove(float fSpeed)
 int West_Rifleman::Update_GameObject()
 {
 	//Get_DeltaTime
-	//if (!m_listBullet.empty() &&dynamic_cast<West_Bullet*>(m_listBullet.front())->Get_State()== OBJ_DEAD)
+	//if (!m_listBullet.empty() &&static_cast<West_Bullet*>(m_listBullet.front())->Get_State()== OBJ_DEAD)
 	//{
 	//	list<CGameObject*>::iterator iter = m_listBullet.begin();
 	//	//for(; iter!= m_listBullet.end(); ++iter)
@@ -106,7 +106,7 @@ int West_Rifleman::Update_GameObject()
 	//D3DXVECTOR3 tPos; //탑의 위치
 	//for (auto p : m_listGameObject[MAP])
 	//{
-	//	for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//	for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//		if (n->byDrawID == 34) //탑 id
 	//			tPos = n->vPos;
 	//}
@@ -182,7 +182,7 @@ int West_Rifleman::Update_GameObject()
 
 void West_Rifleman::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	if (!m_beAttacked)
 
@@ -269,12 +269,12 @@ void West_Rifleman::Search_Enemy()
 
 					else if (j == ID::Bulding)
 					{
-						int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+						int size = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 						for (int k = 0; k < size; k++)
 						{
-							if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+							if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 							{
-								D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+								D3DXVECTOR3 vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 
 								m_Dist = vPos - m_tInfo.vPos;
 								m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
@@ -416,12 +416,12 @@ void West_Rifleman::Search_Enemy()
 			//	for (auto& iter = m_listGameObject[MAP].begin(); iter != m_listGameObject[MAP].end(); ++iter)
 			//	{
 			//
-			//		int Mapsize = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+			//		int Mapsize = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 			//		for (int k = 0; k < Mapsize; k++)
 			//		{
-			//			if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+			//			if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 			//			{
-			//				vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+			//				vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 			//				break;
 			//			}
 			//
@@ -593,7 +593,7 @@ void West_Rifleman::Move()
 	//list<TILE*>& BestList = M_AStar_Manager::Get_Instance()->Get_BestList();
 	//if (BestList.empty())
 	//	return;
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	{
@@ -963,17 +963,17 @@ HRESULT West_Rifleman::Shot(D3DXVECTOR3 &vPos,D3DXVECTOR3 &GoalPos)
 	//
 			pBulletEffect = new BulletEffect;
 			pBulletEffect->Ready_GameObject();
-			dynamic_cast<BulletEffect*>(pBulletEffect)->Set_target(GoalPos);
-			dynamic_cast<BulletEffect*>(pBulletEffect)->Set_Life(1);
+			static_cast<BulletEffect*>(pBulletEffect)->Set_target(GoalPos);
+			static_cast<BulletEffect*>(pBulletEffect)->Set_Life(1);
 			CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::MonsterBulletEffect, pBulletEffect);
 	//		{
 	//			if (pBullet)
 	//			{
 	//
 	//			pBullet->Set_StateON();
-	//			dynamic_cast<West_Bullet*>(pBullet)->Set_targetPos(vPos, GoalPos);
+	//			static_cast<West_Bullet*>(pBullet)->Set_targetPos(vPos, GoalPos);
 	//			}
-	//			//dynamic_cast<West_Bullet*>(pBullet)->Set
+	//			//static_cast<West_Bullet*>(pBullet)->Set
 	//
 	//
 	//
@@ -981,7 +981,7 @@ HRESULT West_Rifleman::Shot(D3DXVECTOR3 &vPos,D3DXVECTOR3 &GoalPos)
 	//			//m_pGameObject_Manager->Add_GameObject_Manager(ID::Bullet, m_listBullet.front());
 	//			////pBullet= m_pGameObject_Manager->Get_PlayerBullet();
 	//			//
-	//			//dynamic_cast<West_Bullet*>(m_listBullet.front())->Set_targetPos(vPos, GoalPos);
+	//			//static_cast<West_Bullet*>(m_listBullet.front())->Set_targetPos(vPos, GoalPos);
 	//
 	//
 	//
@@ -1078,7 +1078,7 @@ void West_Rifleman::Set_GoalTarget()
 	//	D3DXVECTOR3 tPos; //탑의 위치
 	//	for (auto p : m_listGameObject[MAP])
 	//	{
-	//		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//			if (n->byDrawID == 34) //탑 id
 	//				tPos = n->vPos;
 	//	}

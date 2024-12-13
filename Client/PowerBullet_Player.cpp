@@ -41,8 +41,8 @@ HRESULT PowerBullet_Player::Ready_GameObject()
 	StateKey = L"Powerbullet_Player";
 	D3DXMatrixScaling(&matScale, m_tInfo.vSize.x, m_tInfo.vSize.y, 0.f);
 
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
-	//pSkill1 = dynamic_cast<CSkill1_Player*>(CGameObject_Manager::Get_Instance()->Get_ObjectList);
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pSkill1 = static_cast<CSkill1_Player*>(CGameObject_Manager::Get_Instance()->Get_ObjectList);
 
 	Set_Dir();
 

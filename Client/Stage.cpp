@@ -77,23 +77,23 @@ HRESULT CStage::LoadData_MAPObject(const wstring & wstrFilePath)
 			pObject->byDrawID == 48 || pObject->byDrawID == 49 || pObject->byDrawID == 52 || pObject->byDrawID == 54 || pObject->byDrawID == 55 || pObject->byDrawID == 56 ||
 			pObject->byDrawID == 57 || pObject->byDrawID == 63)
 		{
-			dynamic_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
 
 		}
 		else if (pObject->byDrawID == 34)
 		{
 
-			dynamic_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
 			pBulding->Set_HP(10000);
 
 		}
 		else if (pObject->byDrawID == 26)
 		{
-			dynamic_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
 
 		}
 		else
-			dynamic_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
 
 
 
@@ -129,7 +129,7 @@ HRESULT CStage::LoadData_TILEObject(const wstring & wstrFilePath)
 			Safe_Delete(pTile);
 			break;
 		}
-		dynamic_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
+		static_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
 	}
 	if (FAILED(pTerrain->Ready_GameObject()))
 		return E_FAIL;
@@ -241,6 +241,41 @@ HRESULT CStage::Ready_Scene()
 	LoadData_MAPObject(L"../Data/NamHanCastle_ObjectData.dat");
 
 
+	pObject = new CMouse;
+
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	//CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::Mouse, pObject);
+
+
+
+
+
+	pObject = new CPlayer;
+
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::PLAYER, pObject);
+
+
+
+	pObject = new Summon_Kimsimin;
+
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	//CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::ChoSun, pObject);
+
+
+
+	pObject = new Summon_Janggum;
+	if (FAILED(pObject->Ready_GameObject()))
+		return E_FAIL;
+	//CCamera::Get_Instance()->SetTarget(pObject);
+	m_pGameObject_Manager->Add_GameObject_Manager(ID::ChoSun, pObject);
+
 	pObject = new TopHPbar;
 	if (FAILED(pObject->Ready_GameObject()))
 		return E_FAIL;
@@ -309,40 +344,7 @@ HRESULT CStage::Ready_Scene()
 	//
 	//m_pGameObject_Manager->Add_GameObject_Manager(ID::Bullet, pObject);
 
-	pObject = new CMouse;
 	
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL;
-	//CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::Mouse, pObject);
-
-
-
-
-
-	pObject = new CPlayer; 
-	
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL; 
-	CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::PLAYER, pObject);
-
-
-
-	pObject = new Summon_Kimsimin;
-
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL;
-	//CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::ChoSun, pObject);
-
-
-
-	pObject = new Summon_Janggum;
-	if (FAILED(pObject->Ready_GameObject()))
-		return E_FAIL;
-	//CCamera::Get_Instance()->SetTarget(pObject);
-	m_pGameObject_Manager->Add_GameObject_Manager(ID::ChoSun, pObject);
 
 
 	pObject = new RoyalGuard;
@@ -408,14 +410,15 @@ void CStage::Update_Scene()
 
 	//몬스터 다 처치시, 다음 퀘스트 발동!
 	if (
-		m_pGameObject_Manager->Get_MonsterList().empty())
+		//CGameObject_Manager::Get_Instance()->Get_MonsterList();
+		CGameObject_Manager::Get_Instance()->Get_MonsterList().empty())
 	{
-		if (!m_pGameObject_Manager->Get_NPC().empty() && !m_pGameObject_Manager->Get_UI().empty())
+		if (!CGameObject_Manager::Get_Instance()->Get_NPC().empty() && !CGameObject_Manager::Get_Instance()->Get_UI().empty())
 		{
 
-		m_pGameObject_Manager->Get_NPC().front()->Set_StateON();
-		m_pGameObject_Manager->Get_UI().back()->Set_StateON();
-		m_pGameObject_Manager->scenenumber = 4;
+			CGameObject_Manager::Get_Instance()->Get_NPC().front()->Set_StateON();
+			CGameObject_Manager::Get_Instance()->Get_UI().back()->Set_StateON();
+			CGameObject_Manager::Get_Instance()->scenenumber = 4;
 		}
 
 	}

@@ -51,7 +51,7 @@ HRESULT West_Boss::Ready_GameObject()
 	D3DXVECTOR3 tPos; //탑의 위치
 	for (auto p : m_listGameObject[MAP])
 	{
-		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 			if (n->byDrawID == 34 || n->byDrawID == 26) //탑 id
 				tPos = n->vPos;
 	}
@@ -74,7 +74,7 @@ HRESULT West_Boss::Ready_GameObject()
 void West_Boss::Move()
 {
 	
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	DWORD dwSize = m_vecMonster.size();
 
@@ -528,7 +528,7 @@ void West_Boss::Set_GoalTarget()
 	//	D3DXVECTOR3 tPos; //탑의 위치
 	//	for (auto p : m_listGameObject[MAP])
 	//	{
-	//		for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//		for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//			if (n->byDrawID == 34) //탑 id
 	//				tPos = n->vPos;
 	//	}
@@ -544,7 +544,7 @@ void West_Boss::Set_GoalTarget()
 
 void West_Boss::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	DWORD dwSize = m_vecMonster.size();
 
@@ -613,12 +613,12 @@ void West_Boss::Search_Enemy()
 
 					else if (j == ID::MAP)
 					{
-						int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+						int size = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 						for (int k = 0; k < size; k++)
 						{
-							if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+							if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 							{
-								D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+								D3DXVECTOR3 vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 
 								m_Dist = vPos - m_vecMonster[i]->vPos;
 								m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);

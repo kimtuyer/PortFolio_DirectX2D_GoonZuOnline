@@ -38,7 +38,7 @@ HRESULT CQuest::Ready_GameObject()
 	StateKey = L"Quest1";
 	D3DXMatrixScaling(&matScale, m_tInfo.vSize.x, m_tInfo.vSize.y, 0.f);
 	m_quest = 1;
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//Set_Dir();
 	return S_OK;
 }

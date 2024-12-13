@@ -108,16 +108,16 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -134,8 +134,8 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
 
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -148,16 +148,16 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pFirearrowEffect = new FireArrowSkill;
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 								int dir = pDstObject->Get_Dir();
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 								pFirearrowEffect->Ready_GameObject();
 
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -166,8 +166,8 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -191,7 +191,7 @@ void Collison_Manager::Collision_Rect(list<CGameObject*>* plistDest, list<CGameO
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -261,9 +261,9 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 						//if (m_iAttackCount == 1)
 						{
 							
-							dynamic_cast<TopHP*>(m_listGameObject[tophp].front())->Set_TopHP(0.2);
+							static_cast<TopHP*>(m_listGameObject[tophp].front())->Set_TopHP(0.2);
 
-							//dynamic_cast<TopHP*>(pDstObject)->Set_TopHP(0.5);
+							//static_cast<TopHP*>(pDstObject)->Set_TopHP(0.5);
 							//몬스터 공격받음 전달.
 							//pSrcObject->Set_beAttacked();
 							//pSrcObject->Set_beAttackTarget(ID::ChoSun);
@@ -272,7 +272,7 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 
 
 
-							//if (dynamic_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP() < 1)
+							//if (static_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP() < 1)
 
 
 							//pSrcObject->Set_HP(pDstObject->Get_Damage());
@@ -282,12 +282,12 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 
 
 
-							if (dynamic_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP() < 1)
+							if (static_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP() < 1)
 							{
 								//이때 확실히 리스트에서 없애야 크리티컬 이펙트가 쌓이지않음
 							   // pSrcObject->Set_State();
 								pDstObject->Set_AttackStateOFF();
-								dynamic_cast<DAEMA_Boss*>(pSrcObject)->Set_Dead();
+								static_cast<DAEMA_Boss*>(pSrcObject)->Set_Dead();
 								pSrcObject->Set_StateKey(L"Dead");
 
 							}
@@ -302,16 +302,16 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -328,8 +328,8 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
 
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -342,16 +342,16 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pFirearrowEffect = new FireArrowSkill;
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 								int dir = pDstObject->Get_Dir();
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 								pFirearrowEffect->Ready_GameObject();
 
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -360,8 +360,8 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -385,7 +385,7 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -410,8 +410,8 @@ void Collison_Manager::Collision_PlayerAttackBoss(list<CGameObject*>* plistDest,
 void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, list<CGameObject*>* plistSrc)
 {
 
-	if (!m_pGameObject_Manager->Get_listTopHP().empty())
-		m_listGameObject[tophp] = m_pGameObject_Manager->Get_listTopHP();	//CGameObject* pObject;
+	//if (!m_pGameObject_Manager->Get_listTopHP().empty())
+		m_listGameObject[tophp] = CGameObject_Manager::Get_Instance()->Get_listTopHP(); //m_pGameObject_Manager->Get_listTopHP();	//CGameObject* pObject;
 
 	
 
@@ -424,10 +424,10 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 	{
 		
 
-		pDstObject->Set_Collider(dynamic_cast<CMapObject*>(pDstObject)->Get_Collider34());
+		pDstObject->Set_Collider(static_cast<CMapObject*>(pDstObject)->Get_Collider34());
 
-		rPlayer = { LONG(dynamic_cast<CMapObject*>(pDstObject)->Get_Collider34()[0].x), LONG(dynamic_cast<CMapObject*>(pDstObject)->Get_Collider34()[0].y),
-			 LONG(dynamic_cast<CMapObject*>(pDstObject)->Get_Collider34()[1].x), LONG(dynamic_cast<CMapObject*>(pDstObject)->Get_Collider34()[2].y) };
+		rPlayer = { LONG(static_cast<CMapObject*>(pDstObject)->Get_Collider34()[0].x), LONG(static_cast<CMapObject*>(pDstObject)->Get_Collider34()[0].y),
+			 LONG(static_cast<CMapObject*>(pDstObject)->Get_Collider34()[1].x), LONG(static_cast<CMapObject*>(pDstObject)->Get_Collider34()[2].y) };
 
 		//rPlayer = { LONG((pDstObject)->Get_Collider()[0].x), LONG((pDstObject)->Get_Collider()[0].y),
 		//	 LONG((pDstObject)->Get_Collider()[1].x), LONG((pDstObject)->Get_Collider()[2].y) };
@@ -466,9 +466,9 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 
 
 							if(!m_listGameObject[tophp].empty())
-							dynamic_cast<TopHP*>(m_listGameObject[tophp].front())->Set_TopHP(0.05);
+							static_cast<TopHP*>(m_listGameObject[tophp].front())->Set_TopHP(0.05);
 
-							//dynamic_cast<TopHP*>(pDstObject)->Set_TopHP(0.5);
+							//static_cast<TopHP*>(pDstObject)->Set_TopHP(0.5);
 							//몬스터 공격받음 전달.
 							//pSrcObject->Set_beAttacked();
 							//pSrcObject->Set_beAttackTarget(ID::ChoSun);
@@ -477,7 +477,7 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 
 
 
-							 if(dynamic_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP()<1)
+							 if(static_cast<TopHP*>(m_listGameObject[tophp].front())->Get_TopHP()<1)
 							{
 								//이때 확실히 리스트에서 없애야 크리티컬 이펙트가 쌓이지않음
 							   // pSrcObject->Set_State();
@@ -491,8 +491,8 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							pDmgNumber = new DmgNumber;
 							pDmgNumber->Ready_GameObject();
 						
-							dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pDstObject->Get_Info().vPos);
-							dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+							static_cast<DmgNumber*>(pDmgNumber)->Set_target(pDstObject->Get_Info().vPos);
+							static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 							CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -506,8 +506,8 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							//	pCDmgNumber = new CdmgNumber2;
 							//	pCDmgNumber->Ready_GameObject();
 							//
-							//	dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
+							//	static_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 							//
 							//}
@@ -521,16 +521,16 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							//	pCriticalEffect = new CriticalEffect;
 							//	pCriticalEffect->Ready_GameObject();
 							//
-							//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+							//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 							//
 							//
 							//	pCDmgNumber = new CTDmgNumber;
 							//	pCDmgNumber->Ready_GameObject();
 							//
-							//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+							//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 							//
 							//
@@ -545,8 +545,8 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							//	pDmgNumber = new DmgNumber;
 							//	pDmgNumber->Ready_GameObject();
 							//
-							//	dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+							//	static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 							//
 							//
@@ -556,16 +556,16 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							//	pCriticalEffect = new CriticalEffect;
 							//	pCriticalEffect->Ready_GameObject();
 							//
-							//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+							//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 							//
 							//
 							//	pFirearrowEffect = new FireArrowSkill;
-							//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 							//	int dir = pDstObject->Get_Dir();
-							//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-							//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+							//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+							//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 							//	pFirearrowEffect->Ready_GameObject();
 							//
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -574,8 +574,8 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 							//	pCDmgNumber = new CTDmgNumber;
 							//	pCDmgNumber->Ready_GameObject();
 							//
-							//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+							//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 							//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 							//
 							//
@@ -600,7 +600,7 @@ void Collison_Manager::Collision_BuldingAttack(list<CGameObject*>* plistDest, li
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -667,7 +667,7 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 						{
 							pObject = CGameObject_Manager::Get_Instance()->Get_ObjectList()[ID::PlayerHP].front();
 
-							dynamic_cast<CHPBar_Player*>(pObject)->Set_TopHP(0.005);
+							static_cast<CHPBar_Player*>(pObject)->Set_TopHP(0.005);
 							//pSrcObject->Set_HP(pDstObject->Get_Damage());
 							//몬스터 공격받음 전달.
 							pSrcObject->Set_beAttacked();
@@ -677,7 +677,7 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 
 
 
-							if (dynamic_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 1)//pSrcObject->Get_Hp() < 0
+							if (static_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 1)//pSrcObject->Get_Hp() < 0
 							{
 								//이때 확실히 리스트에서 없애야 크리티컬 이펙트가 쌓이지않음
 							   // pSrcObject->Set_State();
@@ -697,8 +697,8 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 								pCDmgNumber = new CdmgNumber2;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 							}
@@ -712,16 +712,16 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -736,8 +736,8 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
 
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -747,16 +747,16 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pFirearrowEffect = new FireArrowSkill;
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 								int dir = pDstObject->Get_Dir();
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 								pFirearrowEffect->Ready_GameObject();
 
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -765,8 +765,8 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -791,7 +791,7 @@ void Collison_Manager::Collision_Melee(list<CGameObject*>* plistDest, list<CGame
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -859,7 +859,7 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 
 							pObject = CGameObject_Manager::Get_Instance()->Get_ObjectList()[ID::PlayerHP].front();
 
-							dynamic_cast<CHPBar_Player*>(pObject)->Set_TopHP(1);
+							static_cast<CHPBar_Player*>(pObject)->Set_TopHP(1);
 
 							//pSrcObject->Set_HP(pDstObject->Get_Damage());
 							//몬스터 공격받음 전달.
@@ -870,7 +870,7 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 
 
 
-							if (dynamic_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 1)
+							if (static_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 1)
 							{
 								//이때 확실히 리스트에서 없애야 크리티컬 이펙트가 쌓이지않음
 							   // pSrcObject->Set_State();
@@ -890,8 +890,8 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 								pCDmgNumber = new CdmgNumber2;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 							}
@@ -905,16 +905,16 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -929,8 +929,8 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
 
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -940,16 +940,16 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pFirearrowEffect = new FireArrowSkill;
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 								int dir = pDstObject->Get_Dir();
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 								pFirearrowEffect->Ready_GameObject();
 
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -958,8 +958,8 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -984,7 +984,7 @@ void Collison_Manager::Collision_Skill(list<CGameObject*>* plistDest, list<CGame
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -1053,16 +1053,16 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 
 							pObject = CGameObject_Manager::Get_Instance()->Get_ObjectList()[ID::PlayerHP].front();
 
-							if (dynamic_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 172)
+							if (static_cast<CHPBar_Player*>(pObject)->Get_TopHP() < 172)
 							{
-							dynamic_cast<CHPBar_Player*>(pObject)->Set_TopHP_Plus(1);
+							static_cast<CHPBar_Player*>(pObject)->Set_TopHP_Plus(1);
 							pCDmgNumber = new CdmgNumber2;
 							pCDmgNumber->Ready_GameObject();
 							D3DXVECTOR3 tSize = { 1,1,1 };
 							pCDmgNumber->Set_size(tSize);
 							pCDmgNumber->Set_StateKey(L"HealNumber");
-							dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
+							static_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							static_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
 							CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 							}
 
@@ -1077,7 +1077,7 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 
 
 
-							//if (dynamic_cast<CHPBar_Player*>(pObject)->Get_TopHP() >=172)
+							//if (static_cast<CHPBar_Player*>(pObject)->Get_TopHP() >=172)
 							{
 								//이때 확실히 리스트에서 없애야 크리티컬 이펙트가 쌓이지않음
 							   // pSrcObject->Set_State();
@@ -1097,8 +1097,8 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 								pCDmgNumber = new CdmgNumber2;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CdmgNumber2*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 							}
@@ -1112,16 +1112,16 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -1136,8 +1136,8 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 								pDmgNumber = new DmgNumber;
 								pDmgNumber->Ready_GameObject();
 
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 
 
@@ -1147,16 +1147,16 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 								pCriticalEffect = new CriticalEffect;
 								pCriticalEffect->Ready_GameObject();
 
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 
 
 								pFirearrowEffect = new FireArrowSkill;
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 								int dir = pDstObject->Get_Dir();
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-								dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+								static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 								pFirearrowEffect->Ready_GameObject();
 
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -1165,8 +1165,8 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 								pCDmgNumber = new CTDmgNumber;
 								pCDmgNumber->Ready_GameObject();
 
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-								dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+								static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 								CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -1191,7 +1191,7 @@ void Collison_Manager::Collision_PlayerHeal(list<CGameObject*>* plistDest, list<
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -1276,8 +1276,8 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 							pDmgNumber = new DmgNumber;
 							pDmgNumber->Ready_GameObject();
 						
-							dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pDstObject->Get_Info().vPos);
-							dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+							static_cast<DmgNumber*>(pDmgNumber)->Set_target(pDstObject->Get_Info().vPos);
+							static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 							CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 						
 
@@ -1285,16 +1285,16 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 							//pCriticalEffect = new CriticalEffect;
 							//pCriticalEffect->Ready_GameObject();
 							//
-							//dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-							//dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+							//static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+							//static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 							//CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 							//
 							//
 							//pCDmgNumber = new CTDmgNumber;
 							//pCDmgNumber->Ready_GameObject();
 							//
-							//dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-							//dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+							//static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+							//static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 							//CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 
 
@@ -1309,8 +1309,8 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 						//	pDmgNumber = new DmgNumber;
 						//	pDmgNumber->Ready_GameObject();
 						//
-						//	dynamic_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-						//	dynamic_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
+						//	static_cast<DmgNumber*>(pDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+						//	static_cast<DmgNumber*>(pDmgNumber)->Set_Life(1);
 						//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pDmgNumber);
 						//
 						//
@@ -1320,16 +1320,16 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 						//	pCriticalEffect = new CriticalEffect;
 						//	pCriticalEffect->Ready_GameObject();
 						//
-						//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
-						//	dynamic_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
+						//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_target(pSrcObject->Get_Info().vPos);
+						//	static_cast<CriticalEffect*>(pCriticalEffect)->Set_Life(1);
 						//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pCriticalEffect);
 						//
 						//
 						//	pFirearrowEffect = new FireArrowSkill;
-						//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
+						//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_target(pSrcObject->Get_Info().vPos);
 						//	int dir = pDstObject->Get_Dir();
-						//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
-						//	dynamic_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
+						//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Dir(dir);
+						//	static_cast<FireArrowSkill*>(pFirearrowEffect)->Set_Life(1);
 						//	pFirearrowEffect->Ready_GameObject();
 						//
 						//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::criticalEffect, pFirearrowEffect);
@@ -1338,8 +1338,8 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 						//	pCDmgNumber = new CTDmgNumber;
 						//	pCDmgNumber->Ready_GameObject();
 						//
-						//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
-						//	dynamic_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
+						//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_target(pSrcObject->Get_Info().vPos);
+						//	static_cast<CTDmgNumber*>(pCDmgNumber)->Set_Life(1);
 						//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::NUMBER, pCDmgNumber);
 						//
 						//
@@ -1362,7 +1362,7 @@ void Collison_Manager::Collision_MonstervsPlayer(list<CGameObject*>* plistDest, 
 
 
 
-			//dynamic_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
+			//static_cast<CPlayer*>(pDstObject)->Set_Life();//플레이어 체력감소
 
 
 
@@ -1390,8 +1390,8 @@ bool Collison_Manager::Collision_PlayerNPC(CGameObject * plistDest, CGameObject 
 	RECT rPlayer;
 
 	RECT MAP;
-	DWORD dwSize = dynamic_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
-	CMapObject* pMap = dynamic_cast<CMapObject*>(plistSrc);
+	DWORD dwSize = static_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
+	CMapObject* pMap = static_cast<CMapObject*>(plistSrc);
 
 	rPlayer = { LONG((plistDest)->Get_Collider()[0].x), LONG((plistDest)->Get_Collider()[0].y),
 				 LONG((plistDest)->Get_Collider()[1].x), LONG((plistDest)->Get_Collider()[2].y) };
@@ -1427,7 +1427,7 @@ bool Collison_Manager::Collision_PlayerNPC(CGameObject * plistDest, CGameObject 
 
 
 //if(Collision_Line(pDstObject->Get_Info().vPos,pDstObject->Get_Info().vSize, 
-		//	dynamic_cast<CRectangle*>(pSrcObject)->Get_Pos(),pSrcObject->Get_Info().vSize, dynamic_cast<CRectangle*>(pSrcObject)->Get_Id()))
+		//	static_cast<CRectangle*>(pSrcObject)->Get_Pos(),pSrcObject->Get_Info().vSize, static_cast<CRectangle*>(pSrcObject)->Get_Id()))
 
 
 //플레이어, 건물간 맵 이동 
@@ -1437,8 +1437,8 @@ bool Collison_Manager::Collision_RectEx(CGameObject* plistDest, CGameObject* pli
 	RECT rPlayer;
 
 	RECT MAP;
-	DWORD dwSize = dynamic_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
-	CMapObject* pMap = dynamic_cast<CMapObject*>(plistSrc);
+	DWORD dwSize = static_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
+	CMapObject* pMap = static_cast<CMapObject*>(plistSrc);
 
 	rPlayer = { LONG((plistDest)->Get_Collider()[0].x), LONG((plistDest)->Get_Collider()[0].y),
 				 LONG((plistDest)->Get_Collider()[1].x), LONG((plistDest)->Get_Collider()[2].y) };
@@ -1582,8 +1582,8 @@ bool Collison_Manager::Collision_RectQuest(CGameObject * plistDest, CGameObject 
 	RECT rMouse;
 	CGameObject* pObject;
 	RECT Quest;
-	//DWORD dwSize = dynamic_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
-	//CQuest* pQuest = dynamic_cast<CQuest*>(plistSrc);
+	//DWORD dwSize = static_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
+	//CQuest* pQuest = static_cast<CQuest*>(plistSrc);
 	if (QuestOrder < 1)
 	{
 
@@ -1621,7 +1621,7 @@ bool Collison_Manager::Collision_RectQuest(CGameObject * plistDest, CGameObject 
 					}
 
 
-					dynamic_cast<CQuest*>(pObject)->QuestChange();
+					static_cast<CQuest*>(pObject)->QuestChange();
 					CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::Quest, pObject);
 					QuestOrder = 0;
 					return true;
@@ -1634,7 +1634,7 @@ bool Collison_Manager::Collision_RectQuest(CGameObject * plistDest, CGameObject 
 						if (FAILED(pObject->Ready_GameObject()))
 							return E_FAIL;
 						pObject->Set_StateKey(L"Quest2");
-						dynamic_cast<CQuest*>(pObject)->QuestChange();
+						static_cast<CQuest*>(pObject)->QuestChange();
 
 						CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::Quest, pObject);
 						return true;
@@ -1677,8 +1677,8 @@ bool Collison_Manager::Collision_RectQuest2(CGameObject * plistDest, CGameObject
 	RECT rMouse;
 	CGameObject* pObject;
 	RECT Quest;
-	//DWORD dwSize = dynamic_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
-	//CQuest* pQuest = dynamic_cast<CQuest*>(plistSrc);
+	//DWORD dwSize = static_cast<CMapObject*>(plistSrc)->Get_VecTile().size();
+	//CQuest* pQuest = static_cast<CQuest*>(plistSrc);
 
 	if (QuestOrder < 3)
 	{
@@ -1705,7 +1705,7 @@ bool Collison_Manager::Collision_RectQuest2(CGameObject * plistDest, CGameObject
 			//	if (FAILED(pObject->Ready_GameObject()))
 			//		return E_FAIL;
 			//
-			//	dynamic_cast<CQuest*>(pObject)->QuestChange();
+			//	static_cast<CQuest*>(pObject)->QuestChange();
 			//	CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::Quest, pObject);
 			//	//++QuestOrder;
 			//	return true;
@@ -1729,7 +1729,7 @@ bool Collison_Manager::Collision_RectQuest2(CGameObject * plistDest, CGameObject
 				pObject->Set_StateKey(L"Quest2");
 				}
 				CGameObject_Manager::Get_Instance()->Set_QuestOn();
-				dynamic_cast<CQuest*>(pObject)->QuestChange();
+				static_cast<CQuest*>(pObject)->QuestChange();
 
 				CGameObject_Manager::Get_Instance()->Add_GameObject_Manager(ID::Quest, pObject);
 				return true;

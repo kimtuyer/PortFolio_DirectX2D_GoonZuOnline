@@ -78,23 +78,23 @@ HRESULT DAEMADO_Scene::LoadData_MAPObject(const wstring & wstrFilePath)
 			pObject->byDrawID == 48 || pObject->byDrawID == 49 || pObject->byDrawID == 52 || pObject->byDrawID == 54 || pObject->byDrawID == 55 || pObject->byDrawID == 56 ||
 			pObject->byDrawID == 57 || pObject->byDrawID == 63)
 		{
-			dynamic_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pTile)->Set_VecMap(pObject);
 
 		}
 		else if (pObject->byDrawID == 34)
 		{
 
-			dynamic_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
 			pBulding->Set_HP(10000);
 
 		}
 		else if (pObject->byDrawID == 26)
 		{
-			dynamic_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pBulding)->Set_VecMap(pObject);
 
 		}
 		else
-			dynamic_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
+			static_cast<CMapObject*>(pMap)->Set_VecMap(pObject);
 
 
 
@@ -130,7 +130,7 @@ HRESULT DAEMADO_Scene::LoadData_TILEObject(const wstring & wstrFilePath)
 			Safe_Delete(pTile);
 			break;
 		}
-		dynamic_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
+		static_cast<CTerrain*>(pTerrain)->Set_vecTile(pTile);
 	}
 	if (FAILED(pTerrain->Ready_GameObject()))
 		return E_FAIL;

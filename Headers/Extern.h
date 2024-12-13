@@ -1,5 +1,6 @@
 #pragma once
 extern HWND g_hWND; 
+extern TCHAR szBuff[1024];
 
 const DWORD WINCX = 1280; //800;
 const DWORD WINCY = 720; //600;

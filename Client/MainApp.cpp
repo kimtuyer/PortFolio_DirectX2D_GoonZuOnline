@@ -80,7 +80,7 @@ void CMainApp::Update_MainApp()
 	CTime_Manager::Get_Instance()->Update_Time_Manager(); 
 	float fTime = CTime_Manager::Get_Instance()->Get_DeltaTime();
 	CCamera* Object = CCamera::Get_Instance();//->Update(fTime);
-	dynamic_cast<CCamera*>(Object)->Update(fTime);
+	static_cast<CCamera*>(Object)->Update(fTime);
 	//Object->Update(fTime);
 	//CCamera::Get_Instance()->Update(CTime_Manager::Get_Instance()->Get_DeltaTime());
 	m_pScene_Manager->Update_Scene_Manager(); 

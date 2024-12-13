@@ -46,7 +46,7 @@ HRESULT CPlayer::Ready_GameObject()
 	StateKey = L"Stand";
 	D3DXMatrixScaling(&matScale, m_tInfo.vSize.x, m_tInfo.vSize.y, 0.f);
 
-	pMouse = dynamic_cast<CMouse*>(CGameObject_Manager::Get_Instance()->Get_Mouse());
+	pMouse = static_cast<CMouse*>(CGameObject_Manager::Get_Instance()->Get_Mouse());
 
 
 	//pBullet = new PowerBullet_Player;
@@ -84,7 +84,7 @@ void CPlayer::MovePlayer()
 	list<TILE*>& BestList = CAStar_Manager::Get_Instance()->Get_BestList();
 	if (BestList.empty())
 		return;
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	int index = pTerrain->Get_TileIndex(m_tInfo.vPos);
 
 	m_tInfo.vDir = BestList.front()->vPos - m_tInfo.vPos;
@@ -221,7 +221,7 @@ int CPlayer::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		//Screento
-		pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		vMouse = { float(pt.x) + vCamera.x, float(pt.y) + vCamera.y, 0.f };
@@ -288,7 +288,7 @@ int CPlayer::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		//pTexInfo = CTexture_Manager::Get_Instance()->Get_TexInfo_Manager(L"Player", StateKey, (DWORD)m_tFrame.fFrameStart);
-		pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		D3DXVECTOR3 vMouse;
@@ -349,7 +349,7 @@ int CPlayer::Update_GameObject()
 	ScreenToClient(g_hWND, &pt);
 
 	//pTexInfo = CTexture_Manager::Get_Instance()->Get_TexInfo_Manager(L"Player", StateKey, (DWORD)m_tFrame.fFrameStart);
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 	D3DXVECTOR3 vMouse;
@@ -412,7 +412,7 @@ int CPlayer::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		pTexInfo = CTexture_Manager::Get_Instance()->Get_TexInfo_Manager(L"Player", StateKey, (DWORD)m_tFrame.fFrameStart);
-		pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		D3DXVECTOR3 vMouse;
@@ -471,7 +471,7 @@ int CPlayer::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		//Screento
-		//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		vMouse = { float(pt.x) + vCamera.x, float(pt.y) + vCamera.y, 0.f };
@@ -503,6 +503,12 @@ void CPlayer::Late_Update_GameObject()
 
 void CPlayer::Render_GameObject()
 {
+
+	//강화2 씬 거북선 탑승 이동시, 공격키 누를경우 해당 상태 대한 텍스처 없어서 null
+	if (ObjectKey == L"TurtleShip" )
+	{
+		StateKey = L"Walk";
+	}
 
 	pTexInfo = CTexture_Manager::Get_Instance()->Get_TexInfo_Manager(ObjectKey, StateKey, (DWORD)m_tFrame.fFrameStart);
 
@@ -638,8 +644,8 @@ HRESULT CPlayer::Shot(D3DXVECTOR3& GoalPos)
 
 
 	//pBullet= m_pGameObject_Manager->Get_PlayerBullet();
-	dynamic_cast<Bullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
-	dynamic_cast<Bullet_Player*>(pBullet)->Set_Life(1);
+	static_cast<Bullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
+	static_cast<Bullet_Player*>(pBullet)->Set_Life(1);
 	if (FAILED(pBullet->Ready_GameObject()))
 		return E_FAIL;
 
@@ -666,9 +672,9 @@ HRESULT CPlayer::DashShot(D3DXVECTOR3 &GoalPos,CGameObject* pBullet, int ArrowNu
 		//D3DXVECTOR3 GoalPos3 = { GoalPos.x + 60,GoalPos.y,0 };
 		//
 		//
-		//dynamic_cast<PowerBullet_Player*>(pBullet2)->Set_targetPos(m_tInfo.vPos, GoalPos2);
-		//dynamic_cast<PowerBullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
-		//dynamic_cast<PowerBullet_Player*>(pBullet3)->Set_targetPos(m_tInfo.vPos, GoalPos3);
+		//static_cast<PowerBullet_Player*>(pBullet2)->Set_targetPos(m_tInfo.vPos, GoalPos2);
+		//static_cast<PowerBullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
+		//static_cast<PowerBullet_Player*>(pBullet3)->Set_targetPos(m_tInfo.vPos, GoalPos3);
 
 		D3DXMatrixScaling(&matScale, m_tInfo.vSize.x, m_tInfo.vSize.y, 0.f);
 
@@ -738,8 +744,8 @@ HRESULT CPlayer::DashShot(D3DXVECTOR3 &GoalPos,CGameObject* pBullet, int ArrowNu
 	{
 		pBullet = new FireArrow_Player;
 
-		dynamic_cast<FireArrow_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
-		dynamic_cast<FireArrow_Player*>(pBullet)->Set_Life(1);
+		static_cast<FireArrow_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
+		static_cast<FireArrow_Player*>(pBullet)->Set_Life(1);
 		if (FAILED(pBullet->Ready_GameObject()))
 			return E_FAIL;
 
@@ -753,8 +759,8 @@ HRESULT CPlayer::DashShot(D3DXVECTOR3 &GoalPos,CGameObject* pBullet, int ArrowNu
 
 
 		//pBullet= m_pGameObject_Manager->Get_PlayerBullet();
-		dynamic_cast<CSkill1_Player*>(pSkill)->Set_targetPos(m_tInfo.vPos, GoalPos);
-		dynamic_cast<CSkill1_Player*>(pSkill)->Set_Life(1);
+		static_cast<CSkill1_Player*>(pSkill)->Set_targetPos(m_tInfo.vPos, GoalPos);
+		static_cast<CSkill1_Player*>(pSkill)->Set_Life(1);
 		if (FAILED(pSkill->Ready_GameObject()))
 			return E_FAIL;
 
@@ -768,8 +774,8 @@ HRESULT CPlayer::DashShot(D3DXVECTOR3 &GoalPos,CGameObject* pBullet, int ArrowNu
 
 			pBullet = new PowerBullet_Player;
 
-			dynamic_cast<PowerBullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
-			dynamic_cast<PowerBullet_Player*>(pBullet)->Set_Life(1);
+			static_cast<PowerBullet_Player*>(pBullet)->Set_targetPos(m_tInfo.vPos, GoalPos);
+			static_cast<PowerBullet_Player*>(pBullet)->Set_Life(1);
 			if (FAILED(pBullet->Ready_GameObject()))
 				return E_FAIL;
 

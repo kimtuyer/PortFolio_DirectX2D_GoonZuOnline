@@ -39,7 +39,7 @@ HRESULT CHPBar_Player::Ready_GameObject()
 	//m_fSpeed = 300.f;
 	StateKey = L"HPBar";
 
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//Set_Dir();
 	return S_OK;
 }

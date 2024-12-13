@@ -38,6 +38,23 @@ void CFrame_Manager::Render_Frame_Manager()
 
 	CGraphic_Device::Get_Instance()->Get_Sprite()->SetTransform(&matTrans); 
 	CGraphic_Device::Get_Instance()->Get_Font()->DrawTextW(CGraphic_Device::Get_Instance()->Get_Sprite(), m_szFPS, lstrlen(m_szFPS), nullptr, 0, D3DCOLOR_ARGB(255, 0, 0, 0)); 
+
+
+	//TextOut(GetDC(g_hWND), 300, 400, szBuff, lstrlen(szBuff));
+
+	//D3DXMATRIX matTrans;
+	//D3DXMatrixTranslation(&matTrans, 100.f, 100.f, 0.f);
+	RECT textRect = { 300, 500, 800, 600 };
+	//TCHAR m_szChat[32];
+	//swprintf_s(m_szChat, L"Hello world");
+
+	CGraphic_Device::Get_Instance()->Get_Sprite()->SetTransform(&matTrans);
+	CGraphic_Device::Get_Instance()->Get_Font()->DrawTextW(CGraphic_Device::Get_Instance()->Get_Sprite(), szBuff, lstrlen(szBuff), &textRect, 0, D3DCOLOR_ARGB(255, 0, 0, 0));
+
+	//CGraphic_Device::Get_Instance()->Get_Font()->DrawText(NULL, L"Hello, World!", -1, &textRect, DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
+	//pFont->DrawText(NULL, L"Hello, World!", -1, &textRect, DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
+
+
 }
 
 bool CFrame_Manager::Frame_Lock()

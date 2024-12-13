@@ -57,7 +57,7 @@ HRESULT Summon_Kimsimin::Ready_GameObject()
 
 	//for (auto p : m_listGameObject[MAP])
 	//{
-	//	for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//	for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//		if (n->byDrawID == 34) //탑 id
 	//			tPos = n->vPos;
 	//}
@@ -93,7 +93,7 @@ void Summon_Kimsimin::FrameMove(float fSpeed)
 
 void Summon_Kimsimin::Move()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	
@@ -370,7 +370,7 @@ int Summon_Kimsimin::Update_GameObject()
 		ScreenToClient(g_hWND, &pt);
 
 		//Screento
-		pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+		pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 		D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 		vMouse = { float(pt.x) + vCamera.x, float(pt.y) + vCamera.y, 0.f };
@@ -685,7 +685,7 @@ HRESULT Summon_Kimsimin::Shot(D3DXVECTOR3 & vPos, D3DXVECTOR3 & GoalPos)
 
 void Summon_Kimsimin::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 	//공격 타깃이 없을때!
 	if (m_tInfo.iAttack_Target == END) //플레이어만 따라다니는 상태!
@@ -728,8 +728,11 @@ void Summon_Kimsimin::Search_Enemy()
 					else
 					{  //route 값이 없어서 터지는 문제 발생
 						m_tInfo.iAttack_Target = ID::MONSTER;
-						m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
+						if (m_listRoute.empty() == false)
+						{
+							m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
 							(*iter)->Get_Info().vPos);
+						}
 						//CAStar_Manager::Get_Instance()->StartAStar_Manager(m_tInfo.vPos, (*iter)->Get_Info().vPos);
 
 					}
@@ -771,12 +774,12 @@ void Summon_Kimsimin::Search_Enemy()
 
 				//else if (j == ID::MAP)
 				//{
-				//	int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+				//	int size = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 				//	for (int k = 0; k < size; k++)
 				//	{
-				//		if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+				//		if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 				//		{
-				//			D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+				//			D3DXVECTOR3 vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 				//
 				//			m_Dist = vPos - m_tInfo.vPos;
 				//			m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
@@ -866,9 +869,12 @@ void Summon_Kimsimin::Search_Enemy()
 				//공격 타겟이 플레이어or 소환영웅내지 조선군은 현재공격타겟이 죽을대까지 움직임변경x,여기선 플레이어
 				//추적만 신경쓰면 될듯!
 				m_tInfo.iAttack_Target = ID::MONSTER; //새로 추적할 타깃변경
+				if (m_listRoute.empty() == false)
+				{
 				m_listRoute.front()->StartAStar_Manager(m_tInfo.vPos,
 					vPos);
 				m_bAttackState = false;
+				}
 				
 				//M_AStar_Manager::Get_Instance()->StartAStar_Manager(m_vecMonster[i]->vPos, 
 				//	vPos);
@@ -889,12 +895,12 @@ void Summon_Kimsimin::Search_Enemy()
 		//	for (auto& iter = m_listGameObject[MAP].begin(); iter != m_listGameObject[MAP].end(); ++iter)
 		//	{
 		//
-		//		int Mapsize = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+		//		int Mapsize = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 		//		for (int k = 0; k < Mapsize; k++)
 		//		{
-		//			if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+		//			if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 		//			{
-		//				vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+		//				vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 		//				break;
 		//			}
 		//

@@ -63,7 +63,7 @@ int CMouse::Update_GameObject()
 	//
 
 	//pTexInfo = CTexture_Manager::Get_Instance()->Get_TexInfo_Manager(L"Player", StateKey, (DWORD)m_tFrame.fFrameStart);
-	//pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	//pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	//
 	//D3DXVECTOR3 vPt = { float(pt.x),float(pt.y),0 };
 	//D3DXVECTOR3 vMouse;

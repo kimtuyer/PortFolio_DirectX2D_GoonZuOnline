@@ -52,7 +52,7 @@ HRESULT DAEMA_Samurai::Ready_GameObject()
 	//D3DXVECTOR3 tPos; //탑의 위치
 	//for (auto p : m_listGameObject[ID::Bulding])
 	//{
-	//	for (auto n : dynamic_cast<CMapObject*>(p)->Get_VecTile())
+	//	for (auto n : static_cast<CMapObject*>(p)->Get_VecTile())
 	//		if (n->byDrawID == 34) //탑 id
 	//			tPos = n->vPos;
 	//}
@@ -91,7 +91,7 @@ void DAEMA_Samurai::FrameMove(float fSpeed)
 
 void DAEMA_Samurai::Move()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	{
@@ -542,7 +542,7 @@ HRESULT DAEMA_Samurai::Shot(D3DXVECTOR3 & vPos, D3DXVECTOR3 & GoalPos)
 
 void DAEMA_Samurai::Search_Enemy()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 	if (!m_beAttacked)
@@ -628,12 +628,12 @@ void DAEMA_Samurai::Search_Enemy()
 
 					else if (j == ID::Bulding)
 					{
-						int size = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+						int size = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 						for (int k = 0; k < size; k++)
 						{
-							if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+							if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 							{
-								D3DXVECTOR3 vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+								D3DXVECTOR3 vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 
 								m_Dist = vPos - m_tInfo.vPos;
 								m_fDist = sqrtf(m_Dist.x*m_Dist.x + m_Dist.y*+m_Dist.y);
@@ -772,12 +772,12 @@ void DAEMA_Samurai::Search_Enemy()
 			//	for (auto& iter = m_listGameObject[MAP].begin(); iter != m_listGameObject[MAP].end(); ++iter)
 			//	{
 			//
-			//		int Mapsize = dynamic_cast<CMapObject*>(*iter)->Get_VecTile().size();
+			//		int Mapsize = static_cast<CMapObject*>(*iter)->Get_VecTile().size();
 			//		for (int k = 0; k < Mapsize; k++)
 			//		{
-			//			if (dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
+			//			if (static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->byDrawID == 34)
 			//			{
-			//				vPos = dynamic_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
+			//				vPos = static_cast<CMapObject*>(*iter)->Get_VecTile()[k]->vPos;
 			//				break;
 			//			}
 			//

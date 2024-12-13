@@ -27,7 +27,7 @@ void CAStar_Manager::StartAStar_Manager(const D3DXVECTOR3 & vStartPos, const D3D
 	if (m_iStartIndex == iGoalIndex)
 		return;
 
-	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	CTerrain*  pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
 
 	if (0 != vecTile[iGoalIndex]->byOption)
@@ -61,7 +61,7 @@ bool CAStar_Manager::PathFinding_AStar_Manager(int iStartIndex, int iGoalIndex)
 		m_OpenList.pop_front();
 
 	m_CloseList.emplace_back(iStartIndex);
-	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	CTerrain*  pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
 	auto& vecGraph = pTerrain->Get_Graph();
 	for (auto& pTile : vecGraph[iStartIndex])
@@ -100,7 +100,7 @@ bool CAStar_Manager::PathFinding_AStar_Manager(int iStartIndex, int iGoalIndex)
 
 void CAStar_Manager::Make_Route(int iGoalIndex)
 {
-	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	CTerrain*  pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
 	auto& vecGraph = pTerrain->Get_Graph();
 
@@ -119,7 +119,7 @@ void CAStar_Manager::Make_Route(int iGoalIndex)
 
 int CAStar_Manager::Get_TileIndex(const D3DXVECTOR3 & vPos)
 {
-	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	CTerrain*  pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
 	int iSize = vecTile.size();
 	for (int i = 0; i < iSize; ++i)
@@ -133,7 +133,7 @@ int CAStar_Manager::Get_TileIndex(const D3DXVECTOR3 & vPos)
 
 bool CAStar_Manager::IsPicking(const D3DXVECTOR3 & vPos, const int iIndex)
 {
-	CTerrain*  pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	CTerrain*  pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 	auto& vecTile = pTerrain->Get_VecTile();
 	D3DXVECTOR3 vVertex[4] =
 	{

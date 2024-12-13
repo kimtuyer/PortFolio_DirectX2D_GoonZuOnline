@@ -69,7 +69,7 @@ void RoyalGuard::FrameMove(float fSpeed)
 
 void RoyalGuard::Move()
 {
-	pTerrain = dynamic_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
+	pTerrain = static_cast<CTerrain*>(CGameObject_Manager::Get_Instance()->Get_Terrain());
 
 
 

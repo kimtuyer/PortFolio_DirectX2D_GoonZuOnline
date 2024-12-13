@@ -12,6 +12,7 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 HWND g_hWND; 
+TCHAR szBuff[1024];
 
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -168,6 +169,44 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		EndPaint(hWnd, &ps);
 	}
 	break;
+	case WM_CHAR:
+	{
+
+		int len = lstrlen(szBuff);
+		//HDC hdc = GetDC(hWnd);
+
+
+		szBuff[len] = TCHAR(wParam);
+		szBuff[len + 1] = 0;
+
+		//		TextOut(hdc, 300, 400, szBuff, strlen(szBuff));		
+		InvalidateRect(hWnd, NULL, TRUE);
+		return 0;
+
+	}
+	/*
+
+	case WM_KEYDOWN:
+	{
+		switch (wParam)
+		{
+		case VK_RETURN:
+		{
+
+			입력창에서 Enter 입력시,
+
+			마우스커서 위치 얻어와서, 입력창 일 경우
+
+			입력창에 존재하는 input값
+
+			설정한 채팅창 좌표로 출력
+
+
+		}
+			break;
+	}
+	*/
+	
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
