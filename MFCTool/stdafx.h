@@ -39,7 +39,7 @@
 
 
 
-#include "Headers.h"
+#include "../Headers/Headers.h"
 #include <afxwin.h>
 
 #ifdef _UNICODE
